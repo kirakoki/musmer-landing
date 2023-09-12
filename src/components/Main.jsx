@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import Slider from "./slider";
 const MyComponent = (props) => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -32,6 +33,7 @@ const MyComponent = (props) => {
 function Main() {
   return (
     <>
+    <Slider />
       <MyComponent />
     </>
   );
