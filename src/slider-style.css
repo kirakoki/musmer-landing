@@ -23,7 +23,7 @@
     height: fit-content;
     margin: auto;
     overflow: hidden;
-    position: relative;
+    /* position: relative; */
     width: 100%;
     /* margin-top: 2rem !important; */
     padding: 0.5rem;
