@@ -114,11 +114,11 @@ function Calculator() {
   };
 
   return (
-    <div className="green-pink-gradient p-[1px] rounded-[20px] shadow-card flex-grow">
+    <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card flex-grow">
       <div className="bg-gray-900 rounded-[20px] py-5 px-12 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col flex-grow">
         <div className="p-[10px] rounded-[20px] ">
           <div className="flex gap-4 rounded-[20px] ">
-            <div className="green-pink-gradient p-[1px] rounded-[10px] shadow-card h-min">
+            <div className="bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min">
               <select
                 value={inputCurrency}
                 onChange={(e) => setInputCurrency(e.target.value)}
@@ -132,7 +132,7 @@ function Calculator() {
                 <option value="TRY">TRY</option>
               </select>
             </div>
-            <div className="green-pink-gradient p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
+            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
               <input
                 type="text"
                 value={inputAmount}
@@ -147,14 +147,14 @@ function Calculator() {
                 setInputCurrency(outputCurrency);
                 setOutputCurrency(inputCurrency);
               }}
-              className="flex items-center justify-center bg-slate-800 rounded-full p-2 w-[4rem] h-[4rem] text-[2rem] font-bold border-solid border-2 border-sky-500 active:translate-y-0 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 active:shadow-md active:translate-y-[-2px] p-4 "
+              className="flex items-center justify-center rounded-full p-2 w-[4rem] h-[4rem] text-[2rem] font-bold border-solid border-2 border-bg-gradient-to-r from-white to-orange-500 active:translate-y-0 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 active:shadow-md active:translate-y-[-2px] p-4 "
               id="exchange"
             >
               <HiMiniArrowPathRoundedSquare className="" />
             </button>
           </div>
           <div className="flex gap-4">
-            <div className="green-pink-gradient p-[1px] rounded-[10px] shadow-card h-min">
+            <div className=" bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min">
               <select
                 className="font-bold p-1 bg-white text-black rounded-md"
                 id="output_currency"
@@ -167,7 +167,7 @@ function Calculator() {
                 <option value="USD">USD</option>
               </select>
             </div>
-            <div className="green-pink-gradient p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
+            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
               <span
                 
                 readOnly
@@ -181,8 +181,8 @@ function Calculator() {
           <div className="w-full flex text-center justify-center p-3 flex-grow ">
             <p>
               Changing From{" "}
-              <span className="text-[#00cea8]">{inputCurrency} </span>
-              to <span className="text-[#bf61ff]">{outputCurrency}</span>
+              <span className="text-slate-300">{inputCurrency} </span>
+              to <span className="text-orange-500">{outputCurrency}</span>
             </p>
           </div>
         </div>

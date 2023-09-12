@@ -9,8 +9,8 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
   <div className="xs:w-[250px] w-full">
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
-    >
+      className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card"
+      >
       <div
         options={{
           max: 45,
@@ -25,11 +25,11 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
         </div>
         <div className="text-white w-full text-[15px] font-bold flex flex-row text-center md:gap-0 gap-3 justify-around items-center ">
           <span className="text-green-400 ">ALIŞ</span>{" "}
-          <span className="text-red-600 ">SATIŞ</span>
+          <span className="text-red-500 ">SATIŞ</span>
         </div>
         <div className="text-white w-full text-[20px] font-bold flex flex-row text-center md:gap-0 gap-3 justify-around items-center ">
           <span className="text-green-400">{buying}</span>{" "}
-          <span className="text-red-600">{seling}</span>
+          <span className="text-red-500">{seling}</span>
         </div>
       </div>
     </motion.div>
@@ -84,7 +84,9 @@ const Hero = () => {
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
+        
           <div className="mt-20 px-2">
+          
             <h1
               className={`${styles.heroHeadText} pt-[4rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
@@ -96,7 +98,7 @@ const Hero = () => {
               Güvenilir Doviz İşlemleri.
             </p>
           </div>
-          <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:gap-10 flex-col md:flex-row justify-center md:items-center">
+          <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dolargif}
               buying={USDtoTL}

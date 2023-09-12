@@ -11,7 +11,7 @@ const MyComponent = (props) => {
       setVantaEffect(
         NET({
           el: myRef.current,
-          color: 0x5fb8cc, // Change this color to your preference
+          color: 0xef6f17, // Change this color to your preference
           backgroundColor: 0x050816, // Change this color to your preference
         })
       );

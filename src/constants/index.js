@@ -112,15 +112,15 @@ const projects = [
     tags: [
       {
         name: "Hızlı",
-        color: "text-teal-300",
+        color: "text-orange-50",
       },
       {
         name: "Güvenilir",
-        color: "text-teal-400",
+        color: "text-orange-100",
       },
       {
         name: "Doğru",
-        color: "text-teal-500",
+        color: "text-orange-200",
       },
     ],
     image: musmerpic,
@@ -133,15 +133,15 @@ const projects = [
     tags: [
       {
         name: "Çalışkan",
-        color: "text-fuchsia-400",
+        color: "text-orange-300",
       },
       {
         name: "Dürüst",
-        color: "text-fuchsia-500",
+        color: "text-orange-400",
       },
       {
         name: "Gerçek",
-        color: "text-fuchsia-600",
+        color: "text-orange-500",
       },
     ],
     image: musmerpicc,
@@ -154,15 +154,15 @@ const projects = [
     tags: [
       {
         name: "Yükselen",
-        color: "text-indigo-200",
+        color: "text-orange-600",
       },
       {
         name: "Stabil",
-        color: "text-indigo-300",
+        color: "text-orange-700",
       },
       {
         name: "En iyi oranlar",
-        color: "text-indigo-400",
+        color: "text-orange-800",
       },
     ],
     image: musmerpiccc,
