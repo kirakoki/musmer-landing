@@ -25,9 +25,10 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    margin-top: 2rem !important;
+    /* margin-top: 2rem !important; */
     padding: 0.5rem;
     color: #151515 !important;
+    z-index: 21;
   }
   .slider::before, .slider::after {
     background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
@@ -35,7 +36,7 @@
     height: fit-content;
     position: absolute;
     width: 20px;
-    z-index: 2;
+    
   }
   .slider::after {
     right: 0;
@@ -50,11 +51,11 @@
     -webkit-animation: scroll 40s linear infinite;
             animation: scroll 40s linear infinite;
     display: flex;
-    width: calc(150px * 13);
+    width: calc(250px * 13);
   }
   .slider .slide {
     height: fit-content;
-    width: 250px;
+    width: 300px;
     gap: 0.5rem;
     display: flex;
     flex-direction: row;

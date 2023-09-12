@@ -56,7 +56,7 @@ function Slider() {
           color: audChangeFloat < 0 ? 'red' : 'green',
       };
   return (
-    <div className="slider">
+    <div className="slider fixed top-[1rem] mt-[1rem]">
         <div className="slide-track">
             <div className="slide">
                 <img src="https://flagcdn.com/48x36/us.png" alt="currency-icon" className="w-[1.2rem] h-[1rem]"/>
