@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn } from "../utils/motion";
 import { eurogif, dolar,dolargif, Poundgif, euro, Pound } from "../assets";
+import Slider from "./slider";
 
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
@@ -81,7 +82,7 @@ const Hero = () => {
 
 
   return (
-    //<>
+    <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
           <div className="mt-20 px-2">
@@ -117,8 +118,9 @@ const Hero = () => {
             />
           </div>
         </div>
+          <Slider />
       </div>
-    //</>
+    </>
   );
 };
 
