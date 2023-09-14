@@ -44,6 +44,7 @@ const Hero = () => {
     EURtoTLs: 0,
     GBPtoTLs: 0,
   });
+const [mostRecent,setMostRecent] = useState("");
 
   useEffect(() => {
     async function fetchData() {
@@ -51,15 +52,17 @@ const Hero = () => {
         const response = await fetch(
           "http://95.0.125.26:8008/api/exchangeratestoday/"
         );
-
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
 
         const data = await response.json();
-        console.log(data);
+        const createdOnTimes = data.map(item => new Date(item?.created_on));
+// console.log("createdOnTimes,",createdOnTimes)
+        // Sort the dates in descending order (most recent first)
+        const mostRecentCreatedOn=   createdOnTimes?.sort((a, b) => b - a);
 
-        // Update state with the fetched data
+      setMostRecent(mostRecentCreatedOn);
         setExchangeRates({
           USDtoTL: data[0].selling_price,
           EURtoTL: data[1].selling_price,
@@ -76,10 +79,7 @@ const Hero = () => {
     fetchData();
   }, []);
 
-  // Now you can access exchangeRates in your component
   const { USDtoTL, EURtoTL, GBPtoTL, USDtoTLs, EURtoTLs, GBPtoTLs } = exchangeRates;
-
-
   return (
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
@@ -97,7 +97,9 @@ const Hero = () => {
               <br className="sm:block hidden" />
               Güvenilir Doviz İşlemleri.
             </p>
+
           </div>
+            <p>Last update time: {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
           <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dolargif}
