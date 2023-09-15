@@ -99,7 +99,7 @@ const [mostRecent,setMostRecent] = useState("");
             </p>
 
           </div>
-            <p>Last update time: {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
+            
           <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dolargif}
@@ -120,6 +120,7 @@ const [mostRecent,setMostRecent] = useState("");
               currencyPair="GBP / TL"
             />
           </div>
+          <p className="mt-4 font-semibold text-md">Last update time: {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
         </div>
       </div>
     </>

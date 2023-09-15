@@ -130,6 +130,42 @@ function Slider() {
                     </div>
                 </div>
             </div>
+            <div className="slide">
+                <img src="https://flagcdn.com/48x36/us.png" alt="currency-icon" className="w-[1.2rem] h-[1rem]"/>
+                <div className="w-fit flex flex-row items-center justify-center" style={percentageChangeStyleUSD}>
+                    <h1>USD</h1> {usdPrice}
+                    <div className="w-fit flex flex-row items-center justify-center">
+                    {usdChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}{usdChange} %
+                    </div>
+                </div>
+            </div>
+            <div className="slide">
+                <img src="https://flagcdn.com/48x36/fr.png" alt="currency-icon" className="w-[1.2rem] h-[1rem]"/>
+                <div className="w-fit flex flex-row items-center justify-center" style={percentageChangeStyleEUR}>
+                    <h1>EUR</h1> {eurPrice}
+                    <div className="w-fit flex flex-row items-center justify-center">
+                    {eurChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}{eurChange} %
+                    </div>
+                </div>
+            </div>
+            <div className="slide">
+                <img src="https://flagcdn.com/48x36/gb.png" alt="currency-icon" className="w-[1.2rem] h-[1rem]"/>
+                <div className="w-fit flex flex-row items-center justify-center" style={percentageChangeStyleGBP}>
+                    <h1>GBP</h1> {gbpPrice}
+                    <div className="w-fit flex flex-row items-center justify-center">
+                    {gbpChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}{gbpChange} %
+                    </div>
+                </div>
+            </div>
+            <div className="slide">
+                <img src="https://flagcdn.com/48x36/au.png" alt="currency-icon" className="w-[1.2rem] h-[1rem]"/>
+                <div className="w-fit flex flex-row items-center justify-center" style={percentageChangeStyleAUD}>
+                    <h1>AUD</h1> {audPrice}
+                    <div className="w-fit flex flex-row items-center justify-center">
+                    {audChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}{audChange} %
+                    </div>
+                </div>
+            </div>
             
             
         </div>

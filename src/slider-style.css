@@ -16,6 +16,8 @@
     100% {
       transform: translateX(calc(-100px * 7));
     }
+
+    
   }
   .slider {
     background: white;
@@ -72,10 +74,12 @@
         color: #151515 !important;
         max-width: 700px !important;
       }
-  }
-  @media (max-width: 767px) {
-    .slider {
-        color: #151515 !important;
-        max-width: 350px !important;
-      }
   } */
+
+
+
+  @media (max-width: 767px) {
+    .slider .slide {
+        width: 220px !important;
+      }
+  } 
