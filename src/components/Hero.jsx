@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn } from "../utils/motion";
-import { eurogif, dolar,dolargif, Poundgif, euro, Pound } from "../assets";
+import dollars_1 from "../assets/icons/dollar.gif"
+import euros_1 from "../assets/icons/euro.gif"
+import sterling_1 from "../assets/icons/sterling.gif"
 
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
@@ -58,11 +60,11 @@ const [mostRecent,setMostRecent] = useState("");
 
         const data = await response.json();
         const createdOnTimes = data.map(item => new Date(item?.created_on));
-// console.log("createdOnTimes,",createdOnTimes)
-        // Sort the dates in descending order (most recent first)
         const mostRecentCreatedOn=   createdOnTimes?.sort((a, b) => b - a);
 
       setMostRecent(mostRecentCreatedOn);
+      console.log("createdOnTime : ", mostRecentCreatedOn[0].toLocaleTimeString())
+
         setExchangeRates({
           USDtoTL: data[0].selling_price,
           EURtoTL: data[1].selling_price,
@@ -102,19 +104,19 @@ const [mostRecent,setMostRecent] = useState("");
             
           <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
-              icon={dolargif}
+              icon={dollars_1}
               buying={USDtoTL}
               seling={USDtoTLs}
               currencyPair="USD / TL"
             />
             <MyServiceCard
-              icon={eurogif}
+              icon={euros_1}
               buying={EURtoTL}
               seling={EURtoTLs}
               currencyPair="EURO / TL"
             />
             <MyServiceCard
-              icon={Poundgif}
+              icon={sterling_1}
               buying={GBPtoTL}
               seling={GBPtoTLs}
               currencyPair="GBP / TL"

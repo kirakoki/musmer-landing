@@ -28,33 +28,20 @@ function Calculator() {
         }
   
         const data = await response.json();
-        // console.log(data);
   
         const currencyPair = `${inputCurrency}-${outputCurrency}`;
         if (currencyPair === 'TRY-USD') {
-          // console.log("TRY-USD : ", data[0].buying_price);
           setExchangeRate(data[0].buying_price);
-          // console.log("Exchange Rate:", data[0].buying_price); 
         } else if (currencyPair === 'TRY-EUR') {
-          // console.log("TRY-EUR : ", data[1].buying_price);
           setExchangeRate(data[1].buying_price);
-          // console.log("Exchange Rate:", data[1].buying_price); 
         } else if (currencyPair === 'TRY-GBP') {
-          // console.log("TRY-GBP : ", data[2].buying_price);
           setExchangeRate(data[2].buying_price);
-          // console.log("Exchange Rate:", data[2].buying_price); 
         } else if (currencyPair === 'USD-TRY') {
-          // console.log("USD-TRY : ", data[0].selling_price);
           setExchangeRate(data[0].selling_price);
-          // console.log("Exchange Rate:", data[0].selling_price); 
         } else if (currencyPair === 'EUR-TRY') {
-          // console.log("EUR-TRY : ", data[1].selling_price);
           setExchangeRate(data[1].selling_price);
-          // console.log("Exchange Rate:", data[1].selling_price); 
         } else if (currencyPair === 'GBP-TRY') {
-          // console.log("GBP-TRY : ", data[2].selling_price);
           setExchangeRate(data[2].selling_price);
-          // console.log("Exchange Rate:", data[2].selling_price); 
         } else {
           // alert('Invalid currency pair');
         }
@@ -67,7 +54,6 @@ function Calculator() {
       fetchExchangeRate();
     }, 500); // Fetch data every 1 second
   
-    // Cleanup function to clear the interval when the component unmounts
     return () => {
       clearInterval(intervalId);
     };
