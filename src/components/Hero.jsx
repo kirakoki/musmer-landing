@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn } from "../utils/motion";
-import dollars_1 from "../assets/icons/dollar.gif"
-import euros_1 from "../assets/icons/euro.gif"
-import sterling_1 from "../assets/icons/sterling.gif"
+import dollars_1 from "../assets/tech/dollar.gif"
+import euros_1 from "../assets/tech/euro.gif"
+import sterling_1 from "../assets/tech/sterling.gif"
 
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (

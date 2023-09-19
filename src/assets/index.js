@@ -9,9 +9,9 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import dolar from "./tech/dolllar.png";
-import Poundgif from "./tech/pound.gif";
-import dolargif from "./tech/dolar.gif";
-import eurogif from "./tech/euroo.gif";
+import Poundgif from "./tech/sterling.gif";
+import dolargif from "./tech/dollar.gif";
+import eurogif from "./tech/euro.gif";
 import threejs from "./tech/threejs.svg";
 import euro from "./tech/euroo.png"
 import Pound from "./tech/poundd.png"
