@@ -10,7 +10,7 @@ function FooterType() {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:w-[29%]">
-              <a className="flex items-center">
+              <a className="flex items-center" href='#hero'>
                   <img src={logo} className="h-8 mr-3" alt="Musmer Logo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
               </a>

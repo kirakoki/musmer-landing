@@ -124,6 +124,7 @@ function Calculator() {
             </div>
             <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
               <input
+              aria-label="input an Amount"
                 type="text"
                 value={inputAmount}
                 onChange={(e) => handleInputAmountChange(e.target.value)}
@@ -133,6 +134,7 @@ function Calculator() {
           </div>
           <div className="flex w-full text-center items-center justify-center p-5 ">
             <button
+            aria-label="exchange_btn"
               onClick={() => {
                 setInputCurrency(outputCurrency);
                 setOutputCurrency(inputCurrency);

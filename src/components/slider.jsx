@@ -43,23 +43,23 @@ function Slider() {
 
   const usdChangeFloat = parseFloat(usdChange);
   const percentageChangeStyleUSD = {
-    color: usdChangeFloat < 0 ? "red" : "green",
+    color: usdChangeFloat < 0 ? "#B30000" : "green",
   };
   const eurChangeFloat = parseFloat(eurChange);
   const percentageChangeStyleEUR = {
-    color: eurChangeFloat < 0 ? "red" : "green",
+    color: eurChangeFloat < 0 ? "#B30000" : "green",
   };
   const gbpChangeFloat = parseFloat(gbpChange);
   const percentageChangeStyleGBP = {
-    color: gbpChangeFloat < 0 ? "red" : "green",
+    color: gbpChangeFloat < 0 ? "#B30000" : "green",
   };
   const audChangeFloat = parseFloat(audChange);
   const percentageChangeStyleAUD = {
-    color: audChangeFloat < 0 ? "red" : "green",
+    color: audChangeFloat < 0 ? "#B30000" : "green",
   };
   return (
-    <div className="slider fixed top-[1rem] mt-[1rem]">
-      <div className="slide-track">
+    <div className="slider fixed top-[1rem] mt-[1rem]" >
+      <div className="slide-track" >
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/us.png'}
         percentageChangeStyle={percentageChangeStyleUSD}
