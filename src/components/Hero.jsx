@@ -59,19 +59,37 @@ const [mostRecent,setMostRecent] = useState("");
         }
 
         const data = await response.json();
-        const createdOnTimes = data.map(item => new Date(item?.created_on));
-        const mostRecentCreatedOn=   createdOnTimes?.sort((a, b) => b - a);
+        const createdOnTimes = data.map(item => {
+          const parts = item.created_on.split(' ');
+          const dateParts = parts[0].split('-');
+          const timeParts = parts[1].split(':');
+          const year = parseInt(dateParts[2], 10);
+          const month = parseInt(dateParts[1], 10) - 1; 
+          const day = parseInt(dateParts[0], 10);
+          const hour = parseInt(timeParts[0], 10);
+          const minute = parseInt(timeParts[1], 10);
+          const second = parseInt(timeParts[2], 10);
+      
+          return new Date(year, month, day, hour, minute, second);
+      });
+      
+      const mostRecentCreatedOn = createdOnTimes.sort((a, b) => b - a);
 
       setMostRecent(mostRecentCreatedOn);
-      console.log("createdOnTime : ", mostRecentCreatedOn[0].toLocaleTimeString())
+      
+      if (mostRecentCreatedOn.length > 0) {
+          console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
+      } else {
+          console.log("No valid dates found in the data.");
+      }
 
         setExchangeRates({
-          USDtoTL: data[0].selling_price,
-          EURtoTL: data[1].selling_price,
-          GBPtoTL: data[2].selling_price,
-          USDtoTLs: data[0].buying_price,
-          EURtoTLs: data[1].buying_price,
-          GBPtoTLs: data[2].buying_price,
+          USDtoTL: data[2].selling_price,
+          EURtoTL: data[3].selling_price,
+          GBPtoTL: data[0].selling_price,
+          USDtoTLs: data[2].buying_price,
+          EURtoTLs: data[3].buying_price,
+          GBPtoTLs: data[0].buying_price,
         });
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -122,7 +140,7 @@ const [mostRecent,setMostRecent] = useState("");
               currencyPair="GBP / TL"
             />
           </div>
-          <p className="mt-4 font-semibold text-md">Last update time: {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
+          <p className="mt-4 font-semibold text-md">Last update time : {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
         </div>
       </div>
     </>

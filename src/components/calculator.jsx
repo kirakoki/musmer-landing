@@ -22,26 +22,27 @@ function Calculator() {
     const fetchExchangeRate = async () => {
       try {
         const response = await fetch("http://95.0.125.26:8008/api/exchangeratestoday/");
+        // const response = await fetch("https://api.musmerexchange.com/api/exchangeratestoday/");
   
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
   
         const data = await response.json();
-  
+        // console.log("data : ", data);
         const currencyPair = `${inputCurrency}-${outputCurrency}`;
         if (currencyPair === 'TRY-USD') {
-          setExchangeRate(data[0].buying_price);
-        } else if (currencyPair === 'TRY-EUR') {
-          setExchangeRate(data[1].buying_price);
-        } else if (currencyPair === 'TRY-GBP') {
           setExchangeRate(data[2].buying_price);
+        } else if (currencyPair === 'TRY-EUR') {
+          setExchangeRate(data[3].buying_price);
+        } else if (currencyPair === 'TRY-GBP') {
+          setExchangeRate(data[0].buying_price);
         } else if (currencyPair === 'USD-TRY') {
-          setExchangeRate(data[0].selling_price);
-        } else if (currencyPair === 'EUR-TRY') {
-          setExchangeRate(data[1].selling_price);
-        } else if (currencyPair === 'GBP-TRY') {
           setExchangeRate(data[2].selling_price);
+        } else if (currencyPair === 'EUR-TRY') {
+          setExchangeRate(data[3].selling_price);
+        } else if (currencyPair === 'GBP-TRY') {
+          setExchangeRate(data[0].selling_price);
         } else {
           // alert('Invalid currency pair');
         }

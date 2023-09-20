@@ -24,15 +24,15 @@ function Slider() {
 
         const data = await response.json();
         // console.log(data);
-        setUsdPrice(data[0].buying_price);
-        setEurPrice(data[1].buying_price);
-        setGbpPrice(data[2].buying_price);
-        setAudPrice(data[3].buying_price);
+        setUsdPrice(data[3].buying_price);
+        setEurPrice(data[2].buying_price);
+        setGbpPrice(data[0].buying_price);
+        setAudPrice(data[1].buying_price);
         // change
-        setUsdChange(data[0].percentage_change);
-        setEurChange(data[1].percentage_change);
-        setGbpChange(data[2].percentage_change);
-        setAudChange(data[3].percentage_change);
+        setUsdChange(data[3].percentage_change);
+        setEurChange(data[2].percentage_change);
+        setGbpChange(data[0].percentage_change);
+        setAudChange(data[1].percentage_change);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
