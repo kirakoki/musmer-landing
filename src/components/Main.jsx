@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import Slider from "./slider";
 const MyComponent = (props) => {
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
@@ -10,7 +11,7 @@ const MyComponent = (props) => {
       setVantaEffect(
         NET({
           el: myRef.current,
-          color: 0x5fb8cc, // Change this color to your preference
+          color: 0xef6f17, // Change this color to your preference
           backgroundColor: 0x050816, // Change this color to your preference
         })
       );
@@ -32,6 +33,7 @@ const MyComponent = (props) => {
 function Main() {
   return (
     <>
+    <Slider />
       <MyComponent />
     </>
   );

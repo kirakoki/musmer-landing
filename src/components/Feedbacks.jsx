@@ -18,7 +18,7 @@ const FeedbackCard = ({ index }) => (
 
 const Feedbacks = () => {
   return (
-    <div className=" green-pink-gradient p-[1px] rounded-[20px] shadow-card ">
+    <div className=" w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card">
       <div
         className={`mt-0.1 bg-black-100 rounded-[20px] items-center flex flex-col justify-center`}
       >
