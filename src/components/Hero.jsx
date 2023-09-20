@@ -148,7 +148,7 @@ const fetchData = async () => {
               currencyPair="GBP / TL"
             />
           </div>
-          <p className="mt-4 font-semibold text-md">Last update time : {mostRecent ? mostRecent[0].toLocaleTimeString() : "Last update date is not available"}</p>
+          <p className="mt-4 font-semibold text-md">Last update time : {mostRecent ? mostRecent[0].toLocaleTimeString() : "unavailable"}</p>
         </div>
       </div>
     </>
