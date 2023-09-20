@@ -56,7 +56,7 @@ function Calculator() {
   
     const intervalId = setInterval(() => {
       fetchExchangeRate();
-    }, 1200000); // Fetch data every 1 second
+    }, 100); // Fetch data every 1 second
 
     return () => {
       clearInterval(intervalId);
