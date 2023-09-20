@@ -52,7 +52,8 @@ const [mostRecent,setMostRecent] = useState("");
     async function fetchData() {
       try {
         const response = await fetch(
-          "http://95.0.125.26:8008/api/exchangeratestoday/"
+          // "http://95.0.125.26:8008/api/exchangeratestoday/"
+          "https://api.musmerexchange.com/api/exchangeratestoday/"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -78,7 +79,7 @@ const [mostRecent,setMostRecent] = useState("");
       setMostRecent(mostRecentCreatedOn);
       
       if (mostRecentCreatedOn.length > 0) {
-          console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
+          // console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
       } else {
           console.log("No valid dates found in the data.");
       }

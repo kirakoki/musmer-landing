@@ -21,8 +21,8 @@ function Calculator() {
   useEffect(() => {
     const fetchExchangeRate = async () => {
       try {
-        const response = await fetch("http://95.0.125.26:8008/api/exchangeratestoday/");
-        // const response = await fetch("https://api.musmerexchange.com/api/exchangeratestoday/");
+        // const response = await fetch("http://95.0.125.26:8008/api/exchangeratestoday/");
+        const response = await fetch("https://api.musmerexchange.com/api/exchangeratestoday/");
   
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -53,7 +53,7 @@ function Calculator() {
   
     const intervalId = setInterval(() => {
       fetchExchangeRate();
-    }, 500); // Fetch data every 1 second
+    }, 1200000); // Fetch data every 20 minutes
   
     return () => {
       clearInterval(intervalId);
