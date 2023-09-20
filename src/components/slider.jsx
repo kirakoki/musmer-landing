@@ -25,13 +25,13 @@ function Slider() {
 
         const data = await response.json();
         // console.log(data);
-        setUsdPrice(data[3].buying_price);
-        setEurPrice(data[2].buying_price);
+        setUsdPrice(data[2].buying_price);
+        setEurPrice(data[3].buying_price);
         setGbpPrice(data[0].buying_price);
         setAudPrice(data[1].buying_price);
         // change
-        setUsdChange(data[3].percentage_change);
-        setEurChange(data[2].percentage_change);
+        setUsdChange(data[2].percentage_change);
+        setEurChange(data[3].percentage_change);
         setGbpChange(data[0].percentage_change);
         setAudChange(data[1].percentage_change);
       } catch (error) {
@@ -67,6 +67,7 @@ function Slider() {
         priceItem={usdPrice}
         arrowItem={usdChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={usdChange}
+        alt={'US Dollar'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/fr.png'}
@@ -75,6 +76,7 @@ function Slider() {
         priceItem={eurPrice}
         arrowItem={eurChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={eurChange}
+        alt={'Euros'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/gb.png'}
@@ -83,6 +85,7 @@ function Slider() {
         priceItem={gbpPrice}
         arrowItem={gbpChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={gbpChange}
+        alt={'Pound Sterling'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/au.png'}
@@ -91,6 +94,7 @@ function Slider() {
         priceItem={audPrice}
         arrowItem={audChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={audChange}
+        alt={'Australian Dollar'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/us.png'}
@@ -99,6 +103,7 @@ function Slider() {
         priceItem={usdPrice}
         arrowItem={usdChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={usdChange}
+        alt={'US Dollar'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/fr.png'}
@@ -107,6 +112,7 @@ function Slider() {
         priceItem={eurPrice}
         arrowItem={eurChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={eurChange}
+        alt={'Euros'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/gb.png'}
@@ -115,6 +121,7 @@ function Slider() {
         priceItem={gbpPrice}
         arrowItem={gbpChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={gbpChange}
+        alt={'Pound Sterling'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/au.png'}
@@ -123,6 +130,7 @@ function Slider() {
         priceItem={audPrice}
         arrowItem={audChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={audChange}
+        alt={'Australian Dollar'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/us.png'}
@@ -131,6 +139,7 @@ function Slider() {
         priceItem={usdPrice}
         arrowItem={usdChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={usdChange}
+        alt={'US Dollar'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/fr.png'}
@@ -139,6 +148,7 @@ function Slider() {
         priceItem={eurPrice}
         arrowItem={eurChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={eurChange}
+        alt={'Euros'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/gb.png'}
@@ -147,6 +157,7 @@ function Slider() {
         priceItem={gbpPrice}
         arrowItem={gbpChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={gbpChange}
+        alt={'Pound Sterling'}
         />
         <SliderItem 
         picItem={'https://flagcdn.com/48x36/au.png'}
@@ -155,6 +166,7 @@ function Slider() {
         priceItem={audPrice}
         arrowItem={audChangeFloat < 0 ? <AiFillCaretDown /> : <AiFillCaretUp />}
         changeItem={audChange}
+        alt={'Australian Dollar'}
         />
       </div>
     </div>
@@ -170,10 +182,11 @@ const SliderItem = ({
   priceItem,
   arrowItem,
   changeItem,
+  alt
 
 }) => (
   <div className="slide">
-    <img src={picItem} alt="currency-icon" className="w-[1.2rem] h-[1rem]" />
+    <img src={picItem} alt={alt} className="w-[1.2rem] h-[1rem]" />
     <div
       className="w-fit flex flex-row items-center justify-center"
       style={percentageChangeStyle}

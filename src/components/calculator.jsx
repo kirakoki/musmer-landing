@@ -21,15 +21,18 @@ function Calculator() {
   useEffect(() => {
     const fetchExchangeRate = async () => {
       try {
-        // const response = await fetch("http://95.0.125.26:8008/api/exchangeratestoday/");
-        const response = await fetch("https://api.musmerexchange.com/api/exchangeratestoday/");
+        const response = await fetch(
+          // "http://95.0.125.26:8008/api/exchangeratestoday/"
+          "https://api.musmerexchange.com/api/exchangeratestoday/"
+          );
   
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
   
         const data = await response.json();
-        // console.log("data : ", data);
+        // console.log(data);
+  
         const currencyPair = `${inputCurrency}-${outputCurrency}`;
         if (currencyPair === 'TRY-USD') {
           setExchangeRate(data[2].buying_price);
@@ -53,8 +56,9 @@ function Calculator() {
   
     const intervalId = setInterval(() => {
       fetchExchangeRate();
-    }, 1200000); // Fetch data every 20 minutes
+    }, 500); // Fetch data every 1 second
   
+    // Cleanup function to clear the interval when the component unmounts
     return () => {
       clearInterval(intervalId);
     };
