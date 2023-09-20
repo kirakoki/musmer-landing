@@ -53,8 +53,8 @@ const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 m
 const fetchData = async () => {
   try {
     const response = await fetch(
-      "http://95.0.125.26:8008/api/exchangeratestoday/"
-      // "https://api.musmerexchange.com/api/exchangeratestoday/"
+      // "http://95.0.125.26:8008/api/exchangeratestoday/"
+      "https://api.musmerexchange.com/api/exchangeratestoday/"
     );
     if (!response.ok) {
       throw new Error("Network response was not ok");

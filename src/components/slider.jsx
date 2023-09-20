@@ -17,8 +17,8 @@ function Slider() {
   const fetchExchangeRate = async () => {
     try {
       const response = await fetch(
-        "http://95.0.125.26:8008/api/exchangeratestoday/"
-        // "https://api.musmerexchange.com/api/exchangeratestoday/"
+        // "http://95.0.125.26:8008/api/exchangeratestoday/"
+        "https://api.musmerexchange.com/api/exchangeratestoday/"
       );
 
       if (!response.ok) {
