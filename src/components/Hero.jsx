@@ -39,12 +39,12 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
 );
 const Hero = () => {
   const [exchangeRates, setExchangeRates] = useState({
-    USDtoTL: 0,
-    EURtoTL: 0,
-    GBPtoTL: 0,
-    USDtoTLs: 0,
-    EURtoTLs: 0,
-    GBPtoTLs: 0,
+    USDtoTL: '',
+    EURtoTL: '',
+    GBPtoTL: '',
+    USDtoTLs: '',
+    EURtoTLs: '',
+    GBPtoTLs: '',
   });
 const [mostRecent,setMostRecent] = useState("");
 
@@ -53,9 +53,12 @@ const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 m
 const fetchData = async () => {
   try {
     const response = await fetch(
-      // "http://95.0.125.26:8008/api/exchangeratestoday/"
-      "https://api.musmerexchange.com/api/exchangeratestoday/"
-    );
+      "https://api.musmerexchange.com/api/exchangeratestoday/", {
+  method: 'GET', 
+  headers: {
+    'Authorization': 'token 6443ca9e33fec48eb0671b854360ddef8225cc58f1606312c5431bff9e3bf294',
+  },
+});
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -113,7 +116,7 @@ const fetchData = async () => {
           <div className="mt-20 px-2">
           
             <h1
-              className={`${styles.heroHeadText} pt-[4rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
+              className={`${styles.heroHeadText} pt-[16rem] md:pt-[4rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
               Musmer <span className="text-[rgb(255,112,13)]">Exchange</span>
             </h1>
