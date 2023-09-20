@@ -56,9 +56,8 @@ function Calculator() {
   
     const intervalId = setInterval(() => {
       fetchExchangeRate();
-    }, 500); // Fetch data every 1 second
-  
-    // Cleanup function to clear the interval when the component unmounts
+    }, 1200000); // Fetch data every 1 second
+
     return () => {
       clearInterval(intervalId);
     };
