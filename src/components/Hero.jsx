@@ -48,56 +48,60 @@ const Hero = () => {
   });
 const [mostRecent,setMostRecent] = useState("");
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          // "http://95.0.125.26:8008/api/exchangeratestoday/"
-          "https://api.musmerexchange.com/api/exchangeratestoday/"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
 
-        const data = await response.json();
-        const createdOnTimes = data.map(item => {
-          const parts = item.created_on.split(' ');
-          const dateParts = parts[0].split('-');
-          const timeParts = parts[1].split(':');
-          const year = parseInt(dateParts[2], 10);
-          const month = parseInt(dateParts[1], 10) - 1; 
-          const day = parseInt(dateParts[0], 10);
-          const hour = parseInt(timeParts[0], 10);
-          const minute = parseInt(timeParts[1], 10);
-          const second = parseInt(timeParts[2], 10);
-      
-          return new Date(year, month, day, hour, minute, second);
-      });
-      
-      const mostRecentCreatedOn = createdOnTimes.sort((a, b) => b - a);
-
-      setMostRecent(mostRecentCreatedOn);
-      
-      if (mostRecentCreatedOn.length > 0) {
-          // console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
-      } else {
-          console.log("No valid dates found in the data.");
-      }
-
-        setExchangeRates({
-          USDtoTL: data[2].selling_price,
-          EURtoTL: data[3].selling_price,
-          GBPtoTL: data[0].selling_price,
-          USDtoTLs: data[2].buying_price,
-          EURtoTLs: data[3].buying_price,
-          GBPtoTLs: data[0].buying_price,
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+const fetchData = async () => {
+  try {
+    const response = await fetch(
+      // "http://95.0.125.26:8008/api/exchangeratestoday/"
+      "https://api.musmerexchange.com/api/exchangeratestoday/"
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
 
+    const data = await response.json();
+    const createdOnTimes = data.map(item => {
+      const parts = item.created_on.split(' ');
+      const dateParts = parts[0].split('-');
+      const timeParts = parts[1].split(':');
+      const year = parseInt(dateParts[2], 10);
+      const month = parseInt(dateParts[1], 10) - 1; 
+      const day = parseInt(dateParts[0], 10);
+      const hour = parseInt(timeParts[0], 10);
+      const minute = parseInt(timeParts[1], 10);
+      const second = parseInt(timeParts[2], 10);
+  
+      return new Date(year, month, day, hour, minute, second);
+  });
+  
+  const mostRecentCreatedOn = createdOnTimes.sort((a, b) => b - a);
+
+  setMostRecent(mostRecentCreatedOn);
+  
+  if (mostRecentCreatedOn.length > 0) {
+      // console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
+  } else {
+      console.log("No valid dates found in the data.");
+  }
+
+    setExchangeRates({
+      USDtoTL: data[2].selling_price,
+      EURtoTL: data[3].selling_price,
+      GBPtoTL: data[0].selling_price,
+      USDtoTLs: data[2].buying_price,
+      EURtoTLs: data[3].buying_price,
+      GBPtoTLs: data[0].buying_price,
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+  useEffect(() => {
+
     fetchData();
+    const intervalId = setInterval(fetchData, pollingInterval);
+    return () => clearInterval(intervalId);
   }, []);
 
   const { USDtoTL, EURtoTL, GBPtoTL, USDtoTLs, EURtoTLs, GBPtoTLs } = exchangeRates;

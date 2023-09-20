@@ -11,34 +11,43 @@ function Slider() {
   const [gbpChange, setGbpChange] = useState("");
   const [audPrice, setAudPrice] = useState("");
   const [audChange, setAudChange] = useState("");
-  useEffect(() => {
-    const fetchExchangeRate = async () => {
-      try {
-        const response = await fetch(
-          // "http://95.0.125.26:8008/api/exchangeratestoday/"
-          "https://api.musmerexchange.com/api/exchangeratestoday/"
-        );
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+  const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
 
-        const data = await response.json();
-        // console.log(data);
-        setUsdPrice(data[2].buying_price);
-        setEurPrice(data[3].buying_price);
-        setGbpPrice(data[0].buying_price);
-        setAudPrice(data[1].buying_price);
-        // change
-        setUsdChange(data[2].percentage_change);
-        setEurChange(data[3].percentage_change);
-        setGbpChange(data[0].percentage_change);
-        setAudChange(data[1].percentage_change);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+  const fetchExchangeRate = async () => {
+    try {
+      const response = await fetch(
+        // "http://95.0.125.26:8008/api/exchangeratestoday/"
+        "https://api.musmerexchange.com/api/exchangeratestoday/"
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    };
+
+      const data = await response.json();
+      // console.log(data);
+      setUsdPrice(data[2].buying_price);
+      setEurPrice(data[3].buying_price);
+      setGbpPrice(data[0].buying_price);
+      setAudPrice(data[1].buying_price);
+      // change
+      setUsdChange(data[2].percentage_change);
+      setEurChange(data[3].percentage_change);
+      setGbpChange(data[0].percentage_change);
+      setAudChange(data[1].percentage_change);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+
+  useEffect(() => {
     fetchExchangeRate();
+  
+    const intervalId = setInterval(fetchExchangeRate, pollingInterval);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   const usdChangeFloat = parseFloat(usdChange);
