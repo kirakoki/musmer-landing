@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 import "../slider-style.css";
+
 function Slider({ exchangeRateData }) {
 
 

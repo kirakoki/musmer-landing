@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Slider from "./Slider"; 
+import Slider from "./slider";
 
 const MyComponent = ({ exchangeRateData }) => {
   ;
