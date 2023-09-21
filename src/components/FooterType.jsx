@@ -34,8 +34,14 @@ function FooterType() {
                     <ul className="text-gray-500 dark:text-gray-400 font-medium">
                     <li className="mb-4 flex items-center">
                         <BsFillTelephoneFill className="mr-2" />
-                        <a href="tel:+905338728888" className="hover:underline">
+                        <a href="tel:+903924448822" className="hover:underline">
                             +90 392 444 88 22
+                        </a>
+                    </li>
+                    <li className="mb-4 flex items-center">
+                        <BsFillTelephoneFill className="mr-2" />
+                        <a href="tel:+90533 8728888" className="hover:underline">
+                        +90 533 872 88 88
                         </a>
                     </li>
                         <li className='text-sx flex items-center'>
