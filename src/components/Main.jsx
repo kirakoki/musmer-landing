@@ -2,10 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
-import Slider from "./slider";
-const MyComponent = (props) => {
+import Slider from "./Slider"; 
+
+const MyComponent = ({ exchangeRateData }) => {
+  ;
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
+
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -20,22 +23,29 @@ const MyComponent = (props) => {
       if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);
+
   return (
     <div
       ref={myRef}
       className="w-fill h-screen flex flex-col items-center justify-center"
     >
       <Navbar />
-      <Hero />
+      <Hero  exchangeRateData={exchangeRateData} />
     </div>
   );
 };
-function Main() {
+
+const Main = ({ exchangeRateData }) => {
+  useEffect(() => {
+    // console.log('Exchange Rate Data in Main:', exchangeRateData);
+  }, [exchangeRateData]);
+
   return (
     <>
-    <Slider />
-      <MyComponent />
+      <Slider exchangeRateData={exchangeRateData} />
+      <MyComponent  exchangeRateData={exchangeRateData} />
     </>
   );
-}
+};
+
 export default Main;

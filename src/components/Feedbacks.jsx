@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
 import "../index.css";
 import Calculator from "./calculator";
-const FeedbackCard = ({ index }) => (
+const FeedbackCard = ({ index, exchangeRateData  }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
     className="p-10 rounded-[2rem] flex-grow items-center justify-center "
   >
-    <Calculator />
+    <Calculator exchangeRateData = { exchangeRateData } />
   </motion.div>
 );
 
-const Feedbacks = () => {
+const Feedbacks = ({ exchangeRateData }) => {
+  useEffect(() => {
+    // console.log('Exchange Rate Data in Feedbacks:', exchangeRateData);
+  }, [exchangeRateData]);
   return (
     <div className=" w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card">
       <div
@@ -37,6 +39,7 @@ const Feedbacks = () => {
               key={testimonial.name}
               index={index}
               {...testimonial}
+              exchangeRateData={exchangeRateData}
             />
           ))}
         </div>

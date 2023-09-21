@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
 
-function Calculator() {
+function Calculator({exchangeRateData}) {
+  useEffect(() => {
+    // console.log('Exchange Rate Data in Calculator:', exchangeRateData);
+  }, [exchangeRateData]);
   const [inputCurrency, setInputCurrency] = useState("TRY");
   const [inputAmount, setInputAmount] = useState("0");  
   const [outputCurrency, setOutputCurrency] = useState("GBP");
@@ -107,7 +110,7 @@ function Calculator() {
 
   return (
     <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card flex-grow">
-      <div className="bg-gray-900 rounded-[20px] py-5 px-12 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col flex-grow">
+      <div className="bg-gray-900 rounded-[20px] py-5  max-px-12 min-h-[180px] px-2 flex justify-evenly items-center flex-col flex-grow">
         <div className="p-[10px] rounded-[20px] ">
           <div className="flex gap-4 rounded-[20px] ">
             <div className="bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min">
@@ -130,7 +133,7 @@ function Calculator() {
                 type="text"
                 value={inputAmount}
                 onChange={(e) => handleInputAmountChange(e.target.value)}
-                className="color-zinc-950 px-2 py-[0.35rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
               />
             </div>
           </div>
@@ -166,7 +169,7 @@ function Calculator() {
                 
                 readOnly
                 type="text"
-                className="color-zinc-950 px-2 py-[0.35rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 min-h-[2rem]"
+                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 min-h-[2rem]"
               >
                 {outputAmount}
               </span>

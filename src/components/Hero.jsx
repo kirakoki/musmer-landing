@@ -2,17 +2,16 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { fadeIn } from "../utils/motion";
-import dollars_1 from "../assets/tech/dollar.gif"
-import euros_1 from "../assets/tech/euro.gif"
-import sterling_1 from "../assets/tech/sterling.gif"
-
+import dollars_1 from "../assets/tech/dollar.gif";
+import euros_1 from "../assets/tech/euro.gif";
+import sterling_1 from "../assets/tech/sterling.gif";
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
   <div className="xs:w-[250px] w-full">
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card"
-      >
+    >
       <div
         options={{
           max: 45,
@@ -21,7 +20,7 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
         }}
         className="bg-gray-900 rounded-[20px] py-5 px-12 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col"
       >
-        <img src={icon} alt="Currency" className="w-16 h-16 object-contain" />
+        <img src={icon} alt="Currency" className="w-[7rem] h-[7rem] object-contain" />
         <div className=" w-full flex flex-row items-center justify-center gap">
           <h1>{currencyPair}</h1>
         </div>
@@ -37,84 +36,78 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
     </motion.div>
   </div>
 );
-const Hero = () => {
+const Hero = ({ exchangeRateData }) => {
+  
+
   const [exchangeRates, setExchangeRates] = useState({
-    USDtoTL: '',
-    EURtoTL: '',
-    GBPtoTL: '',
-    USDtoTLs: '',
-    EURtoTLs: '',
-    GBPtoTLs: '',
+    USDtoTL: exchangeRateData[2]?.selling_price || "",
+    EURtoTL: exchangeRateData[3]?.selling_price || "",
+    GBPtoTL: exchangeRateData[0]?.selling_price || "",
+    USDtoTLs: exchangeRateData[2]?.buying_price || "",
+    EURtoTLs: exchangeRateData[3]?.buying_price || "",
+    GBPtoTLs: exchangeRateData[0]?.buying_price || "",
   });
-const [mostRecent,setMostRecent] = useState("");
 
-const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
+  const [mostRecent, setMostRecent] = useState("");
 
-const fetchData = async () => {
-  try {
-    const response = await fetch(
-      "https://api.musmerexchange.com/api/exchangeratestoday/", {
-  method: 'GET', 
-  headers: {
-    'Authorization': 'token 6443ca9e33fec48eb0671b854360ddef8225cc58f1606312c5431bff9e3bf294',
-  },
-});
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
+  const pollingInterval = 20 * 60 * 1000;
 
-    const data = await response.json();
-    const createdOnTimes = data.map(item => {
-      const parts = item.created_on.split(' ');
-      const dateParts = parts[0].split('-');
-      const timeParts = parts[1].split(':');
-      const year = parseInt(dateParts[2], 10);
-      const month = parseInt(dateParts[1], 10) - 1; 
-      const day = parseInt(dateParts[0], 10);
-      const hour = parseInt(timeParts[0], 10);
-      const minute = parseInt(timeParts[1], 10);
-      const second = parseInt(timeParts[2], 10);
-  
-      return new Date(year, month, day, hour, minute, second);
-  });
-  
-  const mostRecentCreatedOn = createdOnTimes.sort((a, b) => b - a);
-
-  setMostRecent(mostRecentCreatedOn);
-  
-  if (mostRecentCreatedOn.length > 0) {
-      // console.log("Most recent createdOnTime : ", mostRecentCreatedOn[0].toLocaleString());
-  } else {
-      console.log("No valid dates found in the data.");
-  }
-
-    setExchangeRates({
-      USDtoTL: data[2].selling_price,
-      EURtoTL: data[3].selling_price,
-      GBPtoTL: data[0].selling_price,
-      USDtoTLs: data[2].buying_price,
-      EURtoTLs: data[3].buying_price,
-      GBPtoTLs: data[0].buying_price,
-    });
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-}
   useEffect(() => {
+    const parseMostRecentCreatedOn = (data) => {
+      const createdOnTimes = data.map((item) => {
+        const parts = item.created_on.split(" ");
+        const dateParts = parts[0].split("-");
+        const timeParts = parts[1].split(":");
+        const year = parseInt(dateParts[2], 10);
+        const month = parseInt(dateParts[1], 10) - 1;
+        const day = parseInt(dateParts[0], 10);
+        const hour = parseInt(timeParts[0], 10);
+        const minute = parseInt(timeParts[1], 10);
+        const second = parseInt(timeParts[2], 10);
 
-    fetchData();
-    const intervalId = setInterval(fetchData, pollingInterval);
-    return () => clearInterval(intervalId);
-  }, []);
+        return new Date(year, month, day, hour, minute, second);
+      });
 
-  const { USDtoTL, EURtoTL, GBPtoTL, USDtoTLs, EURtoTLs, GBPtoTLs } = exchangeRates;
+      const mostRecentCreatedOn = createdOnTimes.sort((a, b) => b - a);
+
+      setMostRecent(mostRecentCreatedOn);
+
+      if (mostRecentCreatedOn.length > 0) {
+      } else {
+        console.log("No valid dates found in the data.");
+      }
+    };
+
+    const updateExchangeRates = (data) => {
+      setExchangeRates({
+        USDtoTL: data[2]?.selling_price || "",
+        EURtoTL: data[3]?.selling_price || "",
+        GBPtoTL: data[0]?.selling_price || "",
+        USDtoTLs: data[2]?.buying_price || "",
+        EURtoTLs: data[3]?.buying_price || "",
+        GBPtoTLs: data[0]?.buying_price || "",
+      });
+    };
+
+    parseMostRecentCreatedOn(exchangeRateData);
+    updateExchangeRates(exchangeRateData);
+
+    const intervalId = setInterval(() => {
+      parseMostRecentCreatedOn(exchangeRateData);
+      updateExchangeRates(exchangeRateData);
+    }, pollingInterval);
+
+    return () => clearInterval(intervalId); 
+  }, [exchangeRateData]);
+
+  const { USDtoTL, EURtoTL, GBPtoTL, USDtoTLs, EURtoTLs, GBPtoTLs } =
+    exchangeRates;
+
   return (
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
-        
           <div className="mt-20 px-2">
-          
             <h1
               className={`${styles.heroHeadText} pt-[16rem] md:pt-[4rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
@@ -125,9 +118,8 @@ const fetchData = async () => {
               <br className="sm:block hidden" />
               Güvenilir Doviz İşlemleri.
             </p>
-
           </div>
-            
+
           <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dollars_1}
@@ -148,7 +140,10 @@ const fetchData = async () => {
               currencyPair="GBP / TL"
             />
           </div>
-          <p className="mt-4 font-semibold text-md">Last update time : {mostRecent ? mostRecent[0].toLocaleTimeString() : "unavailable"}</p>
+          <p className="mt-4 font-semibold text-md">
+            Last update time :{" "}
+            {mostRecent ? mostRecent[0]?.toLocaleTimeString() : "unavailable"}
+          </p>
         </div>
       </div>
     </>

@@ -2,55 +2,20 @@ import React, { useEffect, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 import "../slider-style.css";
-function Slider() {
-  const [usdPrice, setUsdPrice] = useState("");
-  const [usdChange, setUsdChange] = useState("");
-  const [eurPrice, setEurPrice] = useState("");
-  const [eurChange, setEurChange] = useState("");
-  const [gbpPrice, setGbpPrice] = useState("");
-  const [gbpChange, setGbpChange] = useState("");
-  const [audPrice, setAudPrice] = useState("");
-  const [audChange, setAudChange] = useState("");
-
-  const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
-
-  const fetchExchangeRate = async () => {
-    try {
-      const response = await fetch(
-        "https://api.musmerexchange.com/api/exchangeratestoday/", {
-    method: 'GET', 
-    headers: {
-      'Authorization': 'token 6443ca9e33fec48eb0671b854360ddef8225cc58f1606312c5431bff9e3bf294',
-    },
-  });
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-      // console.log(data);
-      setUsdPrice(data[2].buying_price);
-      setEurPrice(data[3].buying_price);
-      setGbpPrice(data[0].buying_price);
-      setAudPrice(data[1].buying_price);
-      // change
-      setUsdChange(data[2].percentage_change);
-      setEurChange(data[3].percentage_change);
-      setGbpChange(data[0].percentage_change);
-      setAudChange(data[1].percentage_change);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+function Slider({ exchangeRateData }) {
 
 
-  useEffect(() => {
-    fetchExchangeRate();
   
-    const intervalId = setInterval(fetchExchangeRate, pollingInterval);
+  const usdPrice = exchangeRateData[2]?.buying_price;
+  const eurPrice = exchangeRateData[3]?.buying_price;
+  const gbpPrice = exchangeRateData[0]?.buying_price;
+  const audPrice = exchangeRateData[1]?.buying_price;
 
-    return () => clearInterval(intervalId);
-  }, []);
+  const usdChange = exchangeRateData[2]?.percentage_change;
+  const eurChange = exchangeRateData[3]?.percentage_change;
+  const gbpChange = exchangeRateData[0]?.percentage_change;
+  const audChange = exchangeRateData[1]?.percentage_change;
+
 
   const usdChangeFloat = parseFloat(usdChange);
   const percentageChangeStyleUSD = {
