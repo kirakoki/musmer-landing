@@ -15,8 +15,8 @@ const App = () => {
     const fetchExchangeRate = async () => {
       try {
         const response = await axios.get(
-          // "https://api.musmerexchange.com/api/exchangeratestoday/",
-          "http://95.0.125.26:8008/api/exchangeratestoday/",
+          "https://api.musmerexchange.com/api/exchangeratestoday/",
+          // "http://95.0.125.26:8008/api/exchangeratestoday/",
           {
             headers: {
               Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`

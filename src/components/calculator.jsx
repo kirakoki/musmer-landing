@@ -24,8 +24,8 @@ function Calculator({ exchangeRateData }) {
   const fetchExchangeRate = async () => {
     try {
       const response = await fetch(
-        // "https://api.musmerexchange.com/api/exchangeratestoday/",
-        "http://95.0.125.26:8008/api/exchangeratestoday/",
+        "https://api.musmerexchange.com/api/exchangeratestoday/",
+        // "http://95.0.125.26:8008/api/exchangeratestoday/",
         {
           method: "GET",
           headers: {
