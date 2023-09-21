@@ -6,6 +6,7 @@ import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
 import "../index.css";
 import Calculator from "./calculator";
+
 const FeedbackCard = ({ index, exchangeRateData  }) => (
   <motion.div
     variants={fadeIn("", "spring", index * 0.5, 0.75)}
@@ -15,10 +16,8 @@ const FeedbackCard = ({ index, exchangeRateData  }) => (
   </motion.div>
 );
 
-const Feedbacks = ({ exchangeRateData }) => {
-  useEffect(() => {
-    // console.log('Exchange Rate Data in Feedbacks:', exchangeRateData);
-  }, [exchangeRateData]);
+const Feedbacks = ({exchangeRateData}) => {
+
   return (
     <div className=" w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card">
       <div
@@ -49,3 +48,4 @@ const Feedbacks = ({ exchangeRateData }) => {
 };
 
 export default SectionWrapper(Feedbacks, "calculator");
+

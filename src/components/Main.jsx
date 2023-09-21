@@ -5,7 +5,6 @@ import Hero from "./Hero";
 import Slider from "./slider";
 
 const MyComponent = ({ exchangeRateData }) => {
-  ;
   const [vantaEffect, setVantaEffect] = useState(null);
   const myRef = useRef(null);
 

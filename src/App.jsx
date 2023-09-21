@@ -4,34 +4,37 @@ import { About, Contact, Experience, Feedbacks, Works, StarsCanvas, } from "./co
 import FooterType from "./components/FooterType";
 import Main from "./components/Main";
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 
 
 const App = () => {
   const [exchangeRateData, setExchangeRateData] = useState([]);
+  
   useEffect(() => {
     const fetchExchangeRate = async () => {
       try {
-        const response = await fetch(
-          "https://api.musmerexchange.com/api/exchangeratestoday/",
+        const response = await axios.get(
+          // "https://api.musmerexchange.com/api/exchangeratestoday/",
+          "http://95.0.125.26:8008/api/exchangeratestoday/",
           {
-            method: "GET",
             headers: {
-              Authorization:
-                "token 6443ca9e33fec48eb0671b854360ddef8225cc58f1606312c5431bff9e3bf294",
+              Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`
+
             },
           }
         );
-        if (!response.ok) {
+        
+        if (response.status !== 200) {
           throw new Error("Network response was not ok");
         }
 
-        const data = await response.json();
-        setExchangeRateData(data);
-        
+        setExchangeRateData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
+
     fetchExchangeRate();
   }, []);
 

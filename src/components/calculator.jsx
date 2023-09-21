@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
 
-function Calculator({exchangeRateData}) {
+function Calculator({ exchangeRateData }) {
   useEffect(() => {
     // console.log('Exchange Rate Data in Calculator:', exchangeRateData);
   }, [exchangeRateData]);
   const [inputCurrency, setInputCurrency] = useState("TRY");
-  const [inputAmount, setInputAmount] = useState("0");  
+  const [inputAmount, setInputAmount] = useState("0");
   const [outputCurrency, setOutputCurrency] = useState("GBP");
   const [outputAmount, setOutputAmount] = useState("");
   const [exchangeRate, setExchangeRate] = useState(null);
@@ -19,19 +19,20 @@ function Calculator({exchangeRateData}) {
     setOutputAmount(calculateExchange());
   }, [inputAmount, exchangeRate]);
 
-
   const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
-
 
   const fetchExchangeRate = async () => {
     try {
       const response = await fetch(
-        "https://api.musmerexchange.com/api/exchangeratestoday/", {
-    method: 'GET', 
-    headers: {
-      'Authorization': 'token 6443ca9e33fec48eb0671b854360ddef8225cc58f1606312c5431bff9e3bf294',
-    },
-  });
+        // "https://api.musmerexchange.com/api/exchangeratestoday/",
+        "http://95.0.125.26:8008/api/exchangeratestoday/",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`
+          },
+        }
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -40,17 +41,17 @@ function Calculator({exchangeRateData}) {
       // console.log(data);
 
       const currencyPair = `${inputCurrency}-${outputCurrency}`;
-      if (currencyPair === 'TRY-USD') {
+      if (currencyPair === "TRY-USD") {
         setExchangeRate(data[2].buying_price);
-      } else if (currencyPair === 'TRY-EUR') {
+      } else if (currencyPair === "TRY-EUR") {
         setExchangeRate(data[3].buying_price);
-      } else if (currencyPair === 'TRY-GBP') {
+      } else if (currencyPair === "TRY-GBP") {
         setExchangeRate(data[0].buying_price);
-      } else if (currencyPair === 'USD-TRY') {
+      } else if (currencyPair === "USD-TRY") {
         setExchangeRate(data[2].selling_price);
-      } else if (currencyPair === 'EUR-TRY') {
+      } else if (currencyPair === "EUR-TRY") {
         setExchangeRate(data[3].selling_price);
-      } else if (currencyPair === 'GBP-TRY') {
+      } else if (currencyPair === "GBP-TRY") {
         setExchangeRate(data[0].selling_price);
       } else {
         // alert('Invalid currency pair');
@@ -62,50 +63,59 @@ function Calculator({exchangeRateData}) {
 
   useEffect(() => {
     fetchExchangeRate();
-  
+
     const intervalId = setInterval(fetchExchangeRate, pollingInterval);
 
     return () => clearInterval(intervalId);
   }, [inputCurrency, outputCurrency]);
-  
 
   useEffect(() => {
     calculateExchange();
   }, [exchangeRate]);
-  
+
   const calculateExchange = () => {
     if (!exchangeRate) return;
 
     const inputAmountValue = parseFloat(inputAmount);
     let calculatedAmount = 0;
 
-    
     switch (`${inputCurrency}-${outputCurrency}`) {
-      case 'TRY-USD':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue / exchangeRate;
+      case "TRY-USD":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue / exchangeRate;
         break;
-      case 'TRY-EUR':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue / exchangeRate;
+      case "TRY-EUR":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue / exchangeRate;
         break;
-      case 'TRY-GBP':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue / exchangeRate;
+      case "TRY-GBP":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue / exchangeRate;
         break;
-      case 'USD-TRY':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue * exchangeRate;
+      case "USD-TRY":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue * exchangeRate;
         break;
-      case 'EUR-TRY':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue * exchangeRate;
+      case "EUR-TRY":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue * exchangeRate;
         break;
-      case 'GBP-TRY':
-        calculatedAmount = isNaN(inputAmountValue) ? 0 : inputAmountValue * exchangeRate;
+      case "GBP-TRY":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0
+          : inputAmountValue * exchangeRate;
         break;
       default:
         // Handle other currency pairs if needed
         break;
     }
-  
-    return calculatedAmount.toFixed(2);
 
+    return calculatedAmount.toFixed(2);
   };
 
   return (
@@ -129,7 +139,7 @@ function Calculator({exchangeRateData}) {
             </div>
             <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
               <input
-              aria-label="input an Amount"
+                aria-label="input an Amount"
                 type="text"
                 value={inputAmount}
                 onChange={(e) => handleInputAmountChange(e.target.value)}
@@ -139,7 +149,7 @@ function Calculator({exchangeRateData}) {
           </div>
           <div className="flex w-full text-center items-center justify-center p-5 ">
             <button
-            aria-label="exchange_btn"
+              aria-label="exchange_btn"
               onClick={() => {
                 setInputCurrency(outputCurrency);
                 setOutputCurrency(inputCurrency);
@@ -166,7 +176,6 @@ function Calculator({exchangeRateData}) {
             </div>
             <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
               <span
-                
                 readOnly
                 type="text"
                 className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 min-h-[2rem]"
