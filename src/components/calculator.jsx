@@ -6,7 +6,7 @@ function Calculator({ exchangeRateData }) {
     // console.log('Exchange Rate Data in Calculator:', exchangeRateData);
   }, [exchangeRateData]);
   const [inputCurrency, setInputCurrency] = useState("TRY");
-  const [inputAmount, setInputAmount] = useState("0");
+  const [inputAmount, setInputAmount] = useState("0.00");
   const [outputCurrency, setOutputCurrency] = useState("GBP");
   const [outputAmount, setOutputAmount] = useState("");
   const [exchangeRate, setExchangeRate] = useState(null);
@@ -143,7 +143,7 @@ function Calculator({ exchangeRateData }) {
                 type="text"
                 value={inputAmount}
                 onChange={(e) => handleInputAmountChange(e.target.value)}
-                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-[5rem] sm:w-full rounded-md sm:text-sm focus:ring-1"
               />
             </div>
           </div>

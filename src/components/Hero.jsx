@@ -5,6 +5,7 @@ import { fadeIn } from "../utils/motion";
 import dollars_1 from "../assets/tech/dolar_resized.gif";
 import euros_1 from "../assets/tech/euro_resized.gif";
 import sterling_1 from "../assets/tech/sterling_resized.gif";
+import "../slider-style.css";
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
   <div className="xs:w-[250px] w-full">
@@ -20,7 +21,11 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
         }}
         className="bg-gray-900 rounded-[20px] py-5 px-12 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col"
       >
-        <img src={icon} alt="Currency" className="w-[7rem] h-[7rem] object-contain" />
+        <img
+          src={icon}
+          alt="Currency"
+          className="w-[7rem] h-[7rem] object-contain"
+        />
         <div className=" w-full flex flex-row items-center justify-center gap">
           <h1>{currencyPair}</h1>
         </div>
@@ -32,13 +37,12 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
           <span className="text-green-400">{buying}</span>{" "}
           <span className="text-red-500">{seling}</span>
         </div>
+        {!buying || !seling ? <div className="spinner2" /> : null}
       </div>
     </motion.div>
   </div>
 );
 const Hero = ({ exchangeRateData }) => {
-  
-
   const [exchangeRates, setExchangeRates] = useState({
     USDtoTL: exchangeRateData[2]?.selling_price || "",
     EURtoTL: exchangeRateData[3]?.selling_price || "",
@@ -97,7 +101,7 @@ const Hero = ({ exchangeRateData }) => {
       updateExchangeRates(exchangeRateData);
     }, pollingInterval);
 
-    return () => clearInterval(intervalId); 
+    return () => clearInterval(intervalId);
   }, [exchangeRateData]);
 
   const { USDtoTL, EURtoTL, GBPtoTL, USDtoTLs, EURtoTLs, GBPtoTLs } =
@@ -107,7 +111,7 @@ const Hero = ({ exchangeRateData }) => {
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
-          <div className="mt-[14rem] tns:mt-[20] px-2">
+          <div className="mt-[14rem] tns:mt-[20] sm:mt-16 lg:mt-8   px-2">
             <h1
               className={`${styles.heroHeadText} pt-[17rem] md:pt-[5rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
@@ -140,10 +144,14 @@ const Hero = ({ exchangeRateData }) => {
               currencyPair="GBP / TL"
             />
           </div>
-          <p className="mt-4 font-semibold text-md">
-          Son güncelleme: {" "}
-            {mostRecent ? mostRecent[0]?.toLocaleTimeString() : "müsait değil"}
-          </p>
+          <div className="mt-4 font-semibold text-md flex flex-row">
+            Son güncelleme:{" "}
+            {mostRecent && mostRecent.length > 0 ? (
+              mostRecent[0]?.toLocaleTimeString()
+            ) : (
+              <div className="spinner3" />
+              )}
+          </div>
         </div>
       </div>
     </>
