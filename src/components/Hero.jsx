@@ -107,7 +107,7 @@ const Hero = ({ exchangeRateData }) => {
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
-          <div className="mt-20 px-2">
+          <div className="mt-[14rem] tns:mt-[20] px-2">
             <h1
               className={`${styles.heroHeadText} pt-[16rem] md:pt-[4rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
