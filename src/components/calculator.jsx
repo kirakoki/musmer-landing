@@ -121,7 +121,7 @@ function Calculator({ exchangeRateData }) {
   return (
     <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card flex-grow">
       <div className="bg-gray-900 rounded-[20px] py-5  max-px-12 min-h-[180px] px-2 flex justify-evenly items-center flex-col flex-grow">
-        <div className="p-[10px] rounded-[20px] ">
+        <div className="p-[10px] rounded-[20px] flex flex-col items-center">
           <div className="flex gap-4 rounded-[20px] ">
             <div className="bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min">
               <select
