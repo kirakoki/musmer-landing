@@ -88,7 +88,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Ağustos 2023 - Şimdiye",
     points: [
-      "Bize İLETİŞİM sayfamızda bulunan telefon numaralarımızdan gerek Whatsapp gerek aram yolu ile gerek ise email adreslerimizden ulaşabilirsiniz.",
+      "Bize İLETİŞİM sayfamızda bulunan telefon numaralarımızdan gerek Whatsapp gerek arama yolu ile gerek ise email adreslerimizden ulaşabilirsiniz.",
     ],
   },
 ];

@@ -116,7 +116,7 @@ const Hero = ({ exchangeRateData }) => {
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
               En iyi oranlar,En hızlı kolay ve{" "}
               <br className="sm:block hidden" />
-              Güvenilir Doviz İşlemleri.
+              Güvenilir Döviz İşlemleri.
             </p>
           </div>
 
@@ -141,8 +141,8 @@ const Hero = ({ exchangeRateData }) => {
             />
           </div>
           <p className="mt-4 font-semibold text-md">
-            Last update time :{" "}
-            {mostRecent ? mostRecent[0]?.toLocaleTimeString() : "unavailable"}
+          Son güncelleme: {" "}
+            {mostRecent ? mostRecent[0]?.toLocaleTimeString() : "müsait değil"}
           </p>
         </div>
       </div>

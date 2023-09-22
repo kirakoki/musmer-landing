@@ -44,7 +44,7 @@ function FooterType() {
                         +90 533 872 88 88
                         </a>
                     </li>
-                        <li className='text-sx flex items-center'>
+                        <li className='text-sx flex items-center ml-[-6rem] tns:ml-[-5rem] sm:ml-[-0.5rem] overflow-hidden tns:overflow-auto'>
                            <MdEmail className="mr-2"/> 
                             <a href="mailto:info@musmerexchange.com" className="hover:underline">
                                 info@musmerexchange.com

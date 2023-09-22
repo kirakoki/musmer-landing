@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
@@ -27,7 +27,7 @@ const Feedbacks = ({exchangeRateData}) => {
           className={`bg-black-100 rounded-2xl sm:px-16 px-6 mt-2 sm:py-12 py-10 min-h-[160px] items-center`}
         >
           <motion.div variants={textVariant()}>
-            <h2 className={styles.sectionHeadText}>Doviz kuru hesaplayıcı</h2>
+            <h2 className={styles.sectionHeadText}>Döviz kuru hesaplayıcı</h2>
           </motion.div>
         </div>
         <div

@@ -29,7 +29,7 @@ function Calculator({ exchangeRateData }) {
         {
           method: "GET",
           headers: {
-            Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`
+            Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`,
           },
         }
       );
@@ -186,9 +186,9 @@ function Calculator({ exchangeRateData }) {
           </div>
           <div className="w-full flex text-center justify-center p-3 flex-grow ">
             <p>
-              Changing From{" "}
-              <span className="text-slate-300">{inputCurrency} </span>
-              to <span className="text-orange-500">{outputCurrency}</span>
+              {inputCurrency}'den{" "}
+              <span className="text-slate-300">{outputCurrency} </span>
+              olarak değiştiriliyor
             </p>
           </div>
         </div>
