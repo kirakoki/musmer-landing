@@ -18,6 +18,7 @@ const ExperienceCard = ({ experience }) => {
       contentStyle={{
         background: "#1d1836",
         color: "#fff",
+        padding: ".5rem",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
@@ -42,11 +43,11 @@ const ExperienceCard = ({ experience }) => {
         </p>
       </div>
 
-      <ul className="mt-5 list-disc ml-5 space-y-2">
+      <ul className="mt-5 list-disc sm:ml-5 space-y-2">
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider  overflow-scroll sm:overflow-auto"
+            className="text-white-100 text-[14px] sm:pl-1 tracking-wider  overflow-scroll sm:overflow-auto"
           >
             {point}
           </li>
