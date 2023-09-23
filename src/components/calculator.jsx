@@ -47,7 +47,7 @@ function Calculator({ exchangeRateData }) {
       });
 
       // Log the sorted data
-      console.log("Sorted Data:", sortedData);
+      // console.log("Sorted Data:", sortedData);
       // console.log(data);
       
 
