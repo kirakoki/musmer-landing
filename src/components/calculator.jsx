@@ -38,21 +38,32 @@ function Calculator({ exchangeRateData }) {
       }
 
       const data = await response.json();
+      const desiredOrder = ["USD", "EUR", "GBP", "AUD"];
+
+      const sortedData = data.sort((a, b) => {
+        const aIndex = desiredOrder.indexOf(a.currency__name);
+        const bIndex = desiredOrder.indexOf(b.currency__name);
+        return aIndex - bIndex;
+      });
+
+      // Log the sorted data
+      console.log("Sorted Data:", sortedData);
       // console.log(data);
+      
 
       const currencyPair = `${inputCurrency}-${outputCurrency}`;
       if (currencyPair === "TRY-USD") {
-        setExchangeRate(data[2].buying_price);
+        setExchangeRate(sortedData[0].buying_price);
       } else if (currencyPair === "TRY-EUR") {
-        setExchangeRate(data[3].buying_price);
+        setExchangeRate(sortedData[1].buying_price);
       } else if (currencyPair === "TRY-GBP") {
-        setExchangeRate(data[0].buying_price);
+        setExchangeRate(sortedData[2].buying_price);
       } else if (currencyPair === "USD-TRY") {
-        setExchangeRate(data[2].selling_price);
+        setExchangeRate(sortedData[0].selling_price);
       } else if (currencyPair === "EUR-TRY") {
-        setExchangeRate(data[3].selling_price);
+        setExchangeRate(sortedData[1].selling_price);
       } else if (currencyPair === "GBP-TRY") {
-        setExchangeRate(data[0].selling_price);
+        setExchangeRate(sortedData[2].selling_price);
       } else {
         // alert('Invalid currency pair');
       }
@@ -137,7 +148,7 @@ function Calculator({ exchangeRateData }) {
                 <option value="TRY">TRY</option>
               </select>
             </div>
-            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
+            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min max-w-[6rem] md:w-[7.5rem]">
               <input
                 aria-label="input an Amount"
                 type="text"
@@ -154,7 +165,7 @@ function Calculator({ exchangeRateData }) {
                 setInputCurrency(outputCurrency);
                 setOutputCurrency(inputCurrency);
               }}
-              className="flex items-center justify-center rounded-full p-2 w-[4rem] h-[4rem] text-[2rem] font-bold border-solid border-2 border-bg-gradient-to-r from-white to-orange-500 active:translate-y-0 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 active:shadow-md active:translate-y-[-2px] p-4 "
+              className="flex items-center justify-center rounded-full p-2 w-[4rem] h-[4rem] text-[2rem] font-bold border-solid border-2 border-bg-gradient-to-r from-white to-orange-500 active:translate-y-0 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 active:shadow-md "
               id="exchange"
             >
               <HiMiniArrowPathRoundedSquare className="" />
@@ -174,7 +185,7 @@ function Calculator({ exchangeRateData }) {
                 <option value="USD">USD</option>
               </select>
             </div>
-            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min w-[5rem] md:w-[7.5rem]">
+            <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[10px] shadow-card h-min max-w-[6rem] md:w-[7.5rem]">
               <span
                 readOnly
                 type="text"

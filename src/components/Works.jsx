@@ -57,7 +57,7 @@ const Works = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} `}>Bizim</p>
-        <h2 className='font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] sm:py-10 text-[rgb(255,112,13)]'>Resimlerimiz</h2>
+        <h2 className='font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px] sm:py-10 text-[rgb(255,112,13)]'>Değerlerimiz</h2>
       </motion.div>
 
       <div className='w-full flex'>

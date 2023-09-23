@@ -10,33 +10,45 @@ import axios from "axios";
 
 const App = () => {
   const [exchangeRateData, setExchangeRateData] = useState([]);
-  
-  useEffect(() => {
-    const fetchExchangeRate = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.musmerexchange.com/api/exchangeratestoday/",
-          // "http://95.0.125.26:8008/api/exchangeratestoday/",
-          {
-            headers: {
-              Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`
 
-            },
-          }
-        );
-        
-        if (response.status !== 200) {
-          throw new Error("Network response was not ok");
+useEffect(() => {
+  const fetchExchangeRate = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.musmerexchange.com/api/exchangeratestoday/",
+        {
+          headers: {
+            Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`
+          },
         }
+      );
 
-        setExchangeRateData(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      if (response.status !== 200) {
+        throw new Error("Network response was not ok");
       }
-    };
 
-    fetchExchangeRate();
-  }, []);
+      // console.log("Fetched Data:", response.data);
+
+      const desiredOrder = ["USD", "EUR", "GBP", "AUD"];
+
+      const sortedData = response.data.sort((a, b) => {
+        const aIndex = desiredOrder.indexOf(a.currency__name);
+        const bIndex = desiredOrder.indexOf(b.currency__name);
+        return aIndex - bIndex;
+      });
+
+      // Log the sorted data
+      // console.log("Sorted Data:", sortedData);
+
+      setExchangeRateData(sortedData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  fetchExchangeRate();
+}, []);
+
 
   
   return (

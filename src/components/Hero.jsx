@@ -44,12 +44,12 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
 );
 const Hero = ({ exchangeRateData }) => {
   const [exchangeRates, setExchangeRates] = useState({
-    USDtoTL: exchangeRateData[2]?.selling_price || "",
-    EURtoTL: exchangeRateData[3]?.selling_price || "",
-    GBPtoTL: exchangeRateData[0]?.selling_price || "",
-    USDtoTLs: exchangeRateData[2]?.buying_price || "",
-    EURtoTLs: exchangeRateData[3]?.buying_price || "",
-    GBPtoTLs: exchangeRateData[0]?.buying_price || "",
+    USDtoTL: exchangeRateData[0]?.selling_price || "",
+    EURtoTL: exchangeRateData[1]?.selling_price || "",
+    GBPtoTL: exchangeRateData[2]?.selling_price || "",
+    USDtoTLs: exchangeRateData[0]?.buying_price || "",
+    EURtoTLs: exchangeRateData[1]?.buying_price || "",
+    GBPtoTLs: exchangeRateData[2]?.buying_price || "",
   });
 
   const [mostRecent, setMostRecent] = useState("");
@@ -78,18 +78,18 @@ const Hero = ({ exchangeRateData }) => {
 
       if (mostRecentCreatedOn.length > 0) {
       } else {
-        console.log("No valid dates found in the data.");
+        // console.log("No valid dates found in the data.");
       }
     };
 
     const updateExchangeRates = (data) => {
       setExchangeRates({
-        USDtoTL: data[2]?.selling_price || "",
-        EURtoTL: data[3]?.selling_price || "",
-        GBPtoTL: data[0]?.selling_price || "",
-        USDtoTLs: data[2]?.buying_price || "",
-        EURtoTLs: data[3]?.buying_price || "",
-        GBPtoTLs: data[0]?.buying_price || "",
+        USDtoTL: data[0]?.selling_price || "",
+        EURtoTL: data[1]?.selling_price || "",
+        GBPtoTL: data[2]?.selling_price || "",
+        USDtoTLs: data[0]?.buying_price || "",
+        EURtoTLs: data[1]?.buying_price || "",
+        GBPtoTLs: data[2]?.buying_price || "",
       });
     };
 
@@ -113,7 +113,7 @@ const Hero = ({ exchangeRateData }) => {
         <div className="flex items-center justify-center flex-col pt-20">
           <div className="mt-[14rem] tns:mt-[20] sm:mt-16 lg:mt-8   px-2">
             <h1
-              className={`${styles.heroHeadText} pt-[17rem] md:pt-[5rem] text-white font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
+              className={`${styles.heroHeadText} pt-[17rem] md:pt-[5rem]  font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
               Musmer <span className="text-[rgb(255,112,13)]">Exchange</span>
             </h1>
