@@ -31,7 +31,7 @@ function Slider({ exchangeRateData }) {
     color: audChangeFloat < 0 ? "#B30000" : "green",
   };
   return (
-    <div className="slider fixed top-[1rem] mt-[1rem] md:mt-[0]">
+    <div className="slider fixed top-0 md:mt-[0]">
       <div className="slide-track">
         <SliderItem
           picItem={"https://flagcdn.com/48x36/us.png"}
