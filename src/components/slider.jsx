@@ -4,10 +4,10 @@ import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import "../slider-style.css";
 
 function Slider({ exchangeRateData }) {
-  const usdPrice = exchangeRateData[0]?.buying_price;
-  const eurPrice = exchangeRateData[1]?.buying_price;
-  const gbpPrice = exchangeRateData[2]?.buying_price;
-  const audPrice = exchangeRateData[3]?.buying_price;
+  const usdPrice = exchangeRateData[0]?.selling_price;
+  const eurPrice = exchangeRateData[1]?.selling_price;
+  const gbpPrice = exchangeRateData[2]?.selling_price;
+  const audPrice = exchangeRateData[3]?.selling_price;
 
   const usdChange = exchangeRateData[0]?.percentage_change;
   const eurChange = exchangeRateData[1]?.percentage_change;

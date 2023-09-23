@@ -53,17 +53,17 @@ function Calculator({ exchangeRateData }) {
 
       const currencyPair = `${inputCurrency}-${outputCurrency}`;
       if (currencyPair === "TRY-USD") {
-        setExchangeRate(sortedData[0].buying_price);
-      } else if (currencyPair === "TRY-EUR") {
-        setExchangeRate(sortedData[1].buying_price);
-      } else if (currencyPair === "TRY-GBP") {
-        setExchangeRate(sortedData[2].buying_price);
-      } else if (currencyPair === "USD-TRY") {
         setExchangeRate(sortedData[0].selling_price);
-      } else if (currencyPair === "EUR-TRY") {
+      } else if (currencyPair === "TRY-EUR") {
         setExchangeRate(sortedData[1].selling_price);
-      } else if (currencyPair === "GBP-TRY") {
+      } else if (currencyPair === "TRY-GBP") {
         setExchangeRate(sortedData[2].selling_price);
+      } else if (currencyPair === "USD-TRY") {
+        setExchangeRate(sortedData[0].buying_price);
+      } else if (currencyPair === "EUR-TRY") {
+        setExchangeRate(sortedData[1].buying_price);
+      } else if (currencyPair === "GBP-TRY") {
+        setExchangeRate(sortedData[2].buying_price);
       } else {
         // alert('Invalid currency pair');
       }

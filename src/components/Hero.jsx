@@ -127,20 +127,20 @@ const Hero = ({ exchangeRateData }) => {
           <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dollars_1}
-              buying={USDtoTL}
-              seling={USDtoTLs}
+              buying={USDtoTLs}
+              seling={USDtoTL}
               currencyPair="USD / TL"
             />
             <MyServiceCard
               icon={euros_1}
-              buying={EURtoTL}
-              seling={EURtoTLs}
+              buying={EURtoTLs}
+              seling={EURtoTL}
               currencyPair="EURO / TL"
             />
             <MyServiceCard
               icon={sterling_1}
-              buying={GBPtoTL}
-              seling={GBPtoTLs}
+              buying={GBPtoTLs}
+              seling={GBPtoTL}
               currencyPair="GBP / TL"
             />
           </div>
