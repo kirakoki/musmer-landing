@@ -27,7 +27,7 @@ useEffect(() => {
         throw new Error("Network response was not ok");
       }
 
-      console.log("Fetched Data:", response.data);
+      // console.log("Fetched Data:", response.data);
 
       const desiredOrder = ["USD", "EUR", "GBP", "AUD"];
 
