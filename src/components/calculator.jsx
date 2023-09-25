@@ -189,7 +189,7 @@ function Calculator({ exchangeRateData }) {
               <span
                 readOnly
                 type="text"
-                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 min-h-[2rem]"
+                className="color-zinc-950 px-2 py-[0.25rem] bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block min-w-[5rem] w-full rounded-md sm:text-sm focus:ring-1 min-h-[2rem]"
               >
                 {outputAmount}
               </span>
