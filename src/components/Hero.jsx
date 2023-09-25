@@ -118,7 +118,7 @@ const Hero = ({ exchangeRateData }) => {
               Musmer <span className="text-[rgb(255,112,13)]">Exchange</span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              En iyi oranlar,en hızlı, kolay ve{" "}
+              En iyi oranlar, en hızlı, kolay ve{" "}
               <br className="sm:block hidden" />
               güvenilir döviz işlemleri.
             </p>
