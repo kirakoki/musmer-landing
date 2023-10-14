@@ -8,7 +8,7 @@ const About = () => {
   return (
     
     <>
-    <div className="pt-[21rem]  sm:pt-[19rem] md:pt-[6.5rem]">
+    <div className="pt-[26rem]  sm:pt-[19rem] md:pt-[6.5rem]">
       <motion.div variants={textVariant()}>
         <div className="pt-10">
         <h2 className={styles.sectionHeadText}>Bizim <span className='text-[rgb(255,112,13)]'>Hikayemiz</span></h2>
