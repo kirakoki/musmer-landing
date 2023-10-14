@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { HiMiniArrowPathRoundedSquare } from "react-icons/hi2";
 
 function Calculator({ exchangeRateData }) {
-  
   useEffect(() => {
     // console.log('Exchange Rate Data in Calculator:', exchangeRateData);
   }, [exchangeRateData]);
@@ -12,17 +11,14 @@ function Calculator({ exchangeRateData }) {
   const [outputCurrency, setOutputCurrency] = useState("GBP");
   const [outputAmount, setOutputAmount] = useState("");
   const [exchangeRate, setExchangeRate] = useState(null);
-  const [preventApiCall, setPreventApiCall] = useState(false); 
+  const [preventApiCall, setPreventApiCall] = useState(false);
 
-
-  const [usdBuyingPrice, setUsdBuyingPrice] = useState('');
-  const [usdSellingPrice, setUsdSellingPrice] = useState('');
-  const [eurBuyingPrice, setEurBuyingPrice] = useState('');
-  const [eurSellingPrice, setEurSellingPrice] = useState('');
-  const [gbpBuyingPrice, setGbpBuyingPrice] = useState('');
-  const [gbpSellingPrice, setGbpSellingPrice] = useState('');
-  
-
+  const [usdBuyingPrice, setUsdBuyingPrice] = useState("");
+  const [usdSellingPrice, setUsdSellingPrice] = useState("");
+  const [eurBuyingPrice, setEurBuyingPrice] = useState("");
+  const [eurSellingPrice, setEurSellingPrice] = useState("");
+  const [gbpBuyingPrice, setGbpBuyingPrice] = useState("");
+  const [gbpSellingPrice, setGbpSellingPrice] = useState("");
 
   const handleInputAmountChange = (value) => {
     setInputAmount(value);
@@ -32,19 +28,20 @@ function Calculator({ exchangeRateData }) {
     setOutputAmount(calculateExchange());
   }, [inputAmount, exchangeRate]);
 
-
   const pollingInterval = 20 * 60 * 1000; //polling interval to execute every 20 minutes
 
-  
   const fetchExchangeRate = async () => {
     try {
-      if (!preventApiCall) { // Check the flag before making the API call
+      if (!preventApiCall) {
+        // Check the flag before making the API call
         const response = await fetch(
           "https://api.musmerexchange.com/api/exchangeratestoday/",
           {
             method: "GET",
             headers: {
-              Authorization: `token ${import.meta.env.VITE_REACT_APP_AUTH_TOKEN}`,
+              Authorization: `token ${
+                import.meta.env.VITE_REACT_APP_AUTH_TOKEN
+              }`,
             },
           }
         );
@@ -60,23 +57,20 @@ function Calculator({ exchangeRateData }) {
           const bIndex = desiredOrder.indexOf(b.currency__name);
           return aIndex - bIndex;
         });
-        let s_usd = parseFloat(sortedData[0].selling_price)
-        let s_euro = parseFloat(sortedData[1].selling_price)
-        let b_usd = parseFloat(sortedData[0].buying_price)
-        let b_euro = parseFloat(sortedData[1].buying_price)
+        let s_usd = parseFloat(sortedData[0].selling_price);
+        let s_euro = parseFloat(sortedData[1].selling_price);
+        let b_usd = parseFloat(sortedData[0].buying_price);
+        let b_euro = parseFloat(sortedData[1].buying_price);
         let b_gbp = parseFloat(sortedData[2].buying_price);
         let s_gbp = parseFloat(sortedData[2].selling_price);
-        
 
-setUsdBuyingPrice(b_usd)
-setUsdSellingPrice(s_usd)
-setEurBuyingPrice(b_euro)
-setEurSellingPrice(s_euro)
-setGbpBuyingPrice(b_gbp)
-setGbpSellingPrice(s_gbp)
+        setUsdBuyingPrice(b_usd);
+        setUsdSellingPrice(s_usd);
+        setEurBuyingPrice(b_euro);
+        setEurSellingPrice(s_euro);
+        setGbpBuyingPrice(b_gbp);
+        setGbpSellingPrice(s_gbp);
         // console.log("Sorted Data:", sortedData);
-        
-
 
         const currencyPair = `${inputCurrency}-${outputCurrency}`;
         if (currencyPair === "TRY-USD") {
@@ -91,30 +85,29 @@ setGbpSellingPrice(s_gbp)
           setExchangeRate(sortedData[1].buying_price);
         } else if (currencyPair === "GBP-TRY") {
           setExchangeRate(sortedData[2].buying_price);
-        } else if (currencyPair === "USD-EUR"){
-          let n_rate = usdBuyingPrice / eurSellingPrice
-        // console.log("n_Rate: ", n_rate);
+        } else if (currencyPair === "USD-EUR") {
+          let n_rate = usdBuyingPrice / eurSellingPrice;
+          // console.log("n_Rate: ", n_rate);
           setExchangeRate(n_rate);
-        }
-        else if (currencyPair === "EUR-USD"){
-          let n_rateb = eurBuyingPrice / usdSellingPrice
-        // console.log("n_Rate: ", n_rateb);
+        } else if (currencyPair === "EUR-USD") {
+          let n_rateb = eurBuyingPrice / usdSellingPrice;
+          // console.log("n_Rate: ", n_rateb);
           setExchangeRate(n_rateb);
-        } else if (currencyPair === "GBP-USD"){
-          let n_rateg = gbpBuyingPrice / usdSellingPrice
-        // console.log("n_Rate: ", n_rateg);
+        } else if (currencyPair === "GBP-USD") {
+          let n_rateg = gbpBuyingPrice / usdSellingPrice;
+          // console.log("n_Rate: ", n_rateg);
           setExchangeRate(n_rateg);
-        } else if (currencyPair === "USD-GBP"){
-          let n_ratei = usdBuyingPrice / gbpSellingPrice
-        // console.log("n_Rate: ", n_ratei);
+        } else if (currencyPair === "USD-GBP") {
+          let n_ratei = usdBuyingPrice / gbpSellingPrice;
+          // console.log("n_Rate: ", n_ratei);
           setExchangeRate(n_ratei);
-        } else if (currencyPair === "GBP-EUR"){
-          let n_ratep = gbpBuyingPrice / eurSellingPrice
-        // console.log("n_Rate: ", n_ratep);
+        } else if (currencyPair === "GBP-EUR") {
+          let n_ratep = gbpBuyingPrice / eurSellingPrice;
+          // console.log("n_Rate: ", n_ratep);
           setExchangeRate(n_ratep);
-        } else if (currencyPair === "EUR-GBP"){
-          let n_ratez = eurBuyingPrice / gbpSellingPrice
-        // console.log("n_Rate: ", n_ratez);
+        } else if (currencyPair === "EUR-GBP") {
+          let n_ratez = eurBuyingPrice / gbpSellingPrice;
+          // console.log("n_Rate: ", n_ratez);
           setExchangeRate(n_ratez);
         } else {
           let rate = 1;
@@ -219,8 +212,6 @@ setGbpSellingPrice(s_gbp)
     setPreventApiCall(true); // Set the flag to prevent API call
   };
 
- 
-
   return (
     <div className="w-full bg-gradient-to-r from-white to-orange-500 p-[1px] rounded-[20px] shadow-card flex-grow">
       <div className="bg-gray-900 rounded-[20px] py-5  max-px-12 min-h-[180px] px-2 flex justify-evenly items-center flex-col flex-grow">
@@ -252,7 +243,7 @@ setGbpSellingPrice(s_gbp)
           </div>
           <div className="flex w-full text-center items-center justify-center p-5 ">
             <button
-            name="reverse"
+              name="reverse"
               aria-label="exchange_btn"
               // onClick={handleReverseClick}
               className="flex items-center justify-center rounded-full p-2 w-[4rem] h-[4rem] text-[2rem] font-bold border-solid border-2 border-bg-gradient-to-r from-white to-orange-500 active:translate-y-0 bg-gray-800 hover:bg-gray-700 active:bg-gray-900 active:shadow-md "

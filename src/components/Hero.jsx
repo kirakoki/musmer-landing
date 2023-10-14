@@ -19,7 +19,7 @@ const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
           scale: 1,
           speed: 450,
         }}
-        className="bg-gray-900 rounded-[20px] py-5 px-12 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col"
+        className="bg-gray-900 rounded-[20px] py-4 px-8 min-h-[180px] md:px-2 flex justify-evenly items-center flex-col"
       >
         <img
           src={icon}
@@ -111,14 +111,14 @@ const Hero = ({ exchangeRateData }) => {
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
-          <div className="mt-[18rem] tns:mt-[20] sm:mt-16 lg:mt-8   px-2">
+          <div className="mt-[23rem] tns:mt-[20] sm:mt-16 lg:mt-8   px-2">
             <h1
               className={`${styles.heroHeadText} pt-[17rem] md:pt-[5rem]  font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
               Musmer <span className="text-[rgb(255,112,13)]">Exchange</span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-              En iyi oranlar, en hızlı, kolay ve{" "}
+              En iyi Kurlar, en hızlı, kolay ve{" "}
               <br className="sm:block hidden" />
               güvenilir döviz işlemleri.
             </p>

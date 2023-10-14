@@ -34,7 +34,7 @@ function Slider({ exchangeRateData }) {
     <div className="slider fixed top-0 md:mt-[0]">
       <div className="w-[100vw] flex flex-row items-center justify-between md:pb-1 px-4">
         <div className="w-fill flex-row items-center justify-center font-small text-xs">
-        <a href="tel:+90 392 444 88 22" className="pr-4"> contact us: +903924448822</a>
+        <a href="tel:+90 392 444 88 22" className="pr-4"> Bize Ulaşın: +903924448822</a>
       <a href="tel:+90 533 872 88 88" className="">+905338728888</a>
         </div>
         <a className="hidden md:block" href="mailto:info@musmerexchange.com">support: info@musmerexchange.com</a>

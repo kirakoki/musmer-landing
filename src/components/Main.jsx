@@ -13,6 +13,7 @@ const MyComponent = ({ exchangeRateData }) => {
       setVantaEffect(
         NET({
           el: myRef.current,
+          // minHeight: 500.00,
           color: 0xef6f17, // Change this color to your preference
           backgroundColor: 0x050816, // Change this color to your preference
         })
