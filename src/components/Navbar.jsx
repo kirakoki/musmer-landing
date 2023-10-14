@@ -10,6 +10,16 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    if (toggle) {
+      const timer = setTimeout(() => {
+        setToggle(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [toggle]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       if (scrollTop > 100) {
