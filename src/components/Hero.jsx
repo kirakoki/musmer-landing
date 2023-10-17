@@ -161,7 +161,7 @@ const Hero = ({ exchangeRateData }) => {
                 href="tel:+905338728888"
                 className="flex flex-row items-center justify-center gap-2 w-full"
               >
-                <HiOutlineDevicePhoneMobile />
+                <HiOutlineDevicePhoneMobile className="text-[#1b5ac1]" />
                 <span className="text-sm">+90 533 872 88 88</span>
               </a>
             </div>
@@ -170,7 +170,7 @@ const Hero = ({ exchangeRateData }) => {
                 href="tel:+903924448822"
                 className="flex flex-row items-center justify-center gap-2 w-full"
               >
-                <BsFillTelephoneFill />
+                <BsFillTelephoneFill className="text-[#1b5ac1]" />
                 <span className="text-sm">+90 392 444 88 22</span>
               </a>
             </div>
@@ -180,7 +180,7 @@ const Hero = ({ exchangeRateData }) => {
                 href="mailto:info@musmerexchange.com"
                 className="flex flex-row items-center justify-center gap-2 w-full"
               >
-                <FiMail />
+                <FiMail className="text-[#1b5ac1]" />
                 <span className="text-sm">info@musmerexchange.com</span>
               </a>
             </div>
