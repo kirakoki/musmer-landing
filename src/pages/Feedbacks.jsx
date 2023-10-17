@@ -5,7 +5,7 @@ import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
 import "../index.css";
-import Calculator from "./calculator";
+import Calculator from "../components/calculator";
 
 const FeedbackCard = ({ index, exchangeRateData  }) => (
   <motion.div

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
-import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Slider from "./slider";
+import Navbar from "../pages/Navbar";
 
 const MyComponent = ({ exchangeRateData }) => {
   const [vantaEffect, setVantaEffect] = useState(null);
@@ -36,9 +36,6 @@ const MyComponent = ({ exchangeRateData }) => {
 };
 
 const Main = ({ exchangeRateData }) => {
-  useEffect(() => {
-    // console.log('Exchange Rate Data in Main:', exchangeRateData);
-  }, [exchangeRateData]);
 
   return (
     <>

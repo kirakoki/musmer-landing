@@ -27,7 +27,6 @@ useEffect(() => {
         throw new Error("Network response was not ok");
       }
 
-      // console.log("Fetched Data:", response.data);
 
       const desiredOrder = ["USD", "EUR", "GBP", "AUD"];
 
@@ -37,8 +36,6 @@ useEffect(() => {
         return aIndex - bIndex;
       });
 
-      // Log the sorted data
-      // console.log("Sorted Data:", sortedData);
 
       setExchangeRateData(sortedData);
     } catch (error) {
