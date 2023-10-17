@@ -51,18 +51,18 @@ let services = [
 
 const experiences = [
   {
-    title: "Musmer Exchange Nerdedir?",
+    title: "Musmer Exchange Nerededir?",
     company_name: "",
     icon: orangeup,
     iconBg: "#383E56",
     date: "Mart 2013 - Nisan 2014",
     points: [
-      "Kurtuluş Caddesi, Ozanköy,Lemar Yolu, Girne 99300.",
+      "Osman Örek Caddesi Kapı No:49-1 Ozanköy-Lemar Yolu, Yukarı, Girne 9300.",
       
     ],
   },
   {
-    title: "Güncel Döviz kurları Nelerdir",
+    title: "Güncel Döviz kurları Nelerdir ?",
     company_name: "",
     icon: orangeupother,
     iconBg: "#E6DEDD",

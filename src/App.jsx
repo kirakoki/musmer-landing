@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Works, StarsCanvas, } from "./components";
 import FooterType from "./components/FooterType";
-import Main from "./components/Main";
+import Main from "./pages/Main";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

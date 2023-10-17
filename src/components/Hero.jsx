@@ -6,6 +6,9 @@ import dollars_1 from "../assets/tech/dolar_resized.gif";
 import euros_1 from "../assets/tech/euro_resized.gif";
 import sterling_1 from "../assets/tech/sterling_resized.gif";
 import "../slider-style.css";
+import { BsFillTelephoneFill, BsPhone } from "react-icons/bs";
+import { FiMail } from "react-icons/fi";
+import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 
 const MyServiceCard = ({ index, buying, seling, icon, currencyPair }) => (
   <div className="xs:w-[250px] w-full">
@@ -111,7 +114,7 @@ const Hero = ({ exchangeRateData }) => {
     <>
       <div className={`relative w-full h-fill md:h-screen  mx-auto`} id="hero">
         <div className="flex items-center justify-center flex-col pt-20">
-          <div className="mt-[23rem] tns:mt-[20] sm:mt-16 lg:mt-8   px-2">
+          <div className="hidden lg:block mt-[23rem] tns:mt-[20] sm:mt-16 lg:mt-[-2rem]   px-2">
             <h1
               className={`${styles.heroHeadText} pt-[17rem] md:pt-[5rem]  font-black text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2`}
             >
@@ -124,7 +127,7 @@ const Hero = ({ exchangeRateData }) => {
             </p>
           </div>
 
-          <div className="md:mt-20 sm:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
+          <div className="tns:mt-[30rem] mt-[20rem] md:mt-[8rem] lg:mt-[2rem] gap-[2rem] flex font-bold md:w-5/6 md:gap-10 flex-col md:flex-row justify-center md:items-center">
             <MyServiceCard
               icon={dollars_1}
               buying={USDtoTLs}
@@ -150,7 +153,37 @@ const Hero = ({ exchangeRateData }) => {
               mostRecent[0]?.toLocaleTimeString()
             ) : (
               <div className="spinner3" />
-              )}
+            )}
+          </div>
+          <div className="mt-[3rem] lg:hidden font-semibold text-md flex flex-col items-center space-y-2 w-full">
+            <div className="flex items-center justify-center w-full">
+              <a
+                href="tel:+905338728888"
+                className="flex flex-row items-center justify-center gap-2 w-full"
+              >
+                <HiOutlineDevicePhoneMobile />
+                <span className="text-sm">+90 533 872 88 88</span>
+              </a>
+            </div>
+            <div className="flex items-center justify-center w-full">
+              <a
+                href="tel:+903924448822"
+                className="flex flex-row items-center justify-center gap-2 w-full"
+              >
+                <BsFillTelephoneFill />
+                <span className="text-sm">+90 392 444 88 22</span>
+              </a>
+            </div>
+
+            <div className="flex items-center justify-center w-full">
+              <a
+                href="mailto:info@musmerexchange.com"
+                className="flex flex-row items-center justify-center gap-2 w-full"
+              >
+                <FiMail />
+                <span className="text-sm">info@musmerexchange.com</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

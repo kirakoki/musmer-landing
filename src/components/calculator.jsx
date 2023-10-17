@@ -92,6 +92,7 @@ function Calculator({ exchangeRateData }) {
   };
 
   const calculateExchange = (inputAmount, exchangeRateMultiplier) => {
+    console.log("we here" , inputAmount)
     // console.log(exchangeRateData, "insdide the calc function");
     if (!setExchangeRateMultiplier) return;
 
@@ -121,43 +122,63 @@ function Calculator({ exchangeRateData }) {
         break;
       case "EUR-TRY":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "GBP-TRY":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "USD-EUR":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "EUR-USD":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "USD-GBP":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "GBP-USD":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "EUR-GBP":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
         break;
       case "GBP-EUR":
         calculatedAmount = isNaN(inputAmountValue)
-          ? 0
+          ? 0.00
           : inputAmountValue * exchangeRateMultiplier;
+        break;
+      case "GBP-GBP":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0.00
+          : inputAmountValue;
+        break;
+      case "USD-USD":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0.00
+          : inputAmountValue;
+        break;
+      case "EUR-EUR":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0.00
+          : inputAmountValue;
+        break;
+      case "TRY-TRY":
+        calculatedAmount = isNaN(inputAmountValue)
+          ? 0.00
+          : inputAmountValue;
         break;
       default:
         // Handle other currency pairs if needed
@@ -170,7 +191,11 @@ function Calculator({ exchangeRateData }) {
   useEffect(() => {
     calculateExchangeRateMultiplier(inputCurrency, outputCurrency);
     calculateExchange(inputAmount, exchangeRateMultiplier);
-  }, [inputAmount, inputCurrency, outputCurrency]);
+    console.log("out: ", outputCurrency)
+    console.log("in: ", inputCurrency)
+  }, [inputAmount,inputCurrency,outputCurrency,outputAmount,exchangeRateMultiplier]);
+
+
 
   const handleReverseClick = () => {
     setInputCurrency(outputCurrency);

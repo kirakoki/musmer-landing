@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import NET from "vanta/dist/vanta.net.min";
-import Hero from "./Hero";
-import Slider from "./slider";
-import Navbar from "../pages/Navbar";
+import Hero from "../components/Hero";
+import Slider from "../components/Slider";
+import Navbar from "../components/Navbar";
 
 const MyComponent = ({ exchangeRateData }) => {
   const [vantaEffect, setVantaEffect] = useState(null);

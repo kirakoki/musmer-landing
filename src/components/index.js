@@ -1,6 +1,6 @@
 import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
 import Hero from "./Hero";
-import Navbar from "../pages/Navbar";
+import Navbar from "./Navbar";
 import About from "../pages/About";
 import Experience from "../pages/Experience";
 import Works from "../pages/Works";

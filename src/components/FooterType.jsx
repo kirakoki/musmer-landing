@@ -16,9 +16,31 @@ function FooterType() {
               </a>
           </div>
           <div className=" flex gap-8 sm:gap-6 sm: flex-1 p-30 justify-evenly text-sx">
-          
-              <div>
-                  <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Follow us</h2>
+          <div className='flex flex-col justify-between items-start'>
+                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Contact</h2>
+                    <ul className="flex flex-col items-start justify-center text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
+                    <li className="mb-4 flex items-center">
+                        <BsFillTelephoneFill className="mr-2" />
+                        <a href="tel:+903924448822" className="hover:underline">
+                            +90 392 444 88 22
+                        </a>
+                    </li>
+                    <li className="mb-4 flex items-center">
+                        <BsFillTelephoneFill className="mr-2" />
+                        <a href="tel:+905338728888" className="hover:underline">
+                        +90 533 872 88 88
+                        </a>
+                    </li>
+                        <li className='text-sx flex items-center  overflow-hidden tns:overflow-auto'>
+                           <MdEmail className="mr-2"/> 
+                            <a href="mailto:info@musmerexchange.com" className="hover:underline">
+                                info@musmerexchange.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+              <div className='min-[270px]:ml-[-5rem] min-[320px]:ml-1'>
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white ">Follow us</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
                       <li className="mb-4">
                           <a href="https://www.facebook.com/musmerexchange" className="hover:underline ">Facebook</a>
@@ -29,29 +51,7 @@ function FooterType() {
                      
                   </ul>
               </div>
-              <div className='flex-row justify-between items-center'>
-                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Contact</h2>
-                    <ul className="text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
-                    <li className="mb-4 flex items-center">
-                        <BsFillTelephoneFill className="mr-2" />
-                        <a href="tel:+903924448822" className="hover:underline">
-                            +90 392 444 88 22
-                        </a>
-                    </li>
-                    <li className="mb-4 flex items-center">
-                        <BsFillTelephoneFill className="mr-2" />
-                        <a href="tel:+90533 8728888" className="hover:underline">
-                        +90 533 872 88 88
-                        </a>
-                    </li>
-                        <li className='text-sx flex items-center ml-[-6rem] tns:ml-[-5rem] sm:ml-[-0.5rem] overflow-hidden tns:overflow-auto'>
-                           <MdEmail className="mr-2"/> 
-                            <a href="mailto:info@musmerexchange.com" className="hover:underline">
-                                info@musmerexchange.com
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+              
           </div>
       </div>
       <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />

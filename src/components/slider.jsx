@@ -32,7 +32,7 @@ function Slider({ exchangeRateData }) {
   };
   return (
     <div className="slider fixed top-0 md:mt-[0]">
-      <div className="w-[100vw] flex flex-row items-center justify-around md:pb-1 px-4">
+      <div className="w-[100vw] hidden lg:flex flex-row items-center justify-around md:pb-1 px-4">
         <div className="w-fill flex flex-row items-start justify-start font-small text-xs">
           <div className="flex flex-row items-start justify-start">
           <span className="hidden md:block"> Bize Ulaşın: </span>
