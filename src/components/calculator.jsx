@@ -88,7 +88,7 @@ function Calculator({ exchangeRateData }) {
       let rate = 1;
       setExchangeRateMultiplier(rate);
     }
-    console.log("Exchange Rate Multiplier:", exchangeRateMultiplier);
+    // console.log("Exchange Rate Multiplier:", exchangeRateMultiplier);
   };
 
   const calculateExchange = (inputAmount, exchangeRateMultiplier) => {
