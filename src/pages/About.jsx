@@ -8,7 +8,7 @@ const About = () => {
   return (
     
     <>
-    <div className="pt-[30rem]  sm:pt-[19rem] md:pt-[6.5rem]">
+    <div className="max-[300px]:pt-[15rem] pt-[26rem]  sm:pt-[19rem] md:pt-[0.15rem] flex flex-col items-center justify-center">
       <motion.div variants={textVariant()}>
         <div className="pt-10">
         <h2 className={styles.sectionHeadText}>
