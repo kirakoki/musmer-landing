@@ -5,6 +5,7 @@ import FooterType from "./components/FooterType";
 import Main from "./pages/Main";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Maps from "./components/Maps";
 
 
 
@@ -61,7 +62,7 @@ useEffect(() => {
           <Contact />
           <StarsCanvas />
         </div>
-
+        <Maps />
         <FooterType />
       </div>
     </BrowserRouter>
