@@ -92,7 +92,7 @@ function Calculator({ exchangeRateData }) {
   };
 
   const calculateExchange = (inputAmount, exchangeRateMultiplier) => {
-    console.log("we here" , inputAmount)
+    // console.log("we here" , inputAmount)
     // console.log(exchangeRateData, "insdide the calc function");
     if (!setExchangeRateMultiplier) return;
 
@@ -191,8 +191,8 @@ function Calculator({ exchangeRateData }) {
   useEffect(() => {
     calculateExchangeRateMultiplier(inputCurrency, outputCurrency);
     calculateExchange(inputAmount, exchangeRateMultiplier);
-    console.log("out: ", outputCurrency)
-    console.log("in: ", inputCurrency)
+    // console.log("out: ", outputCurrency)
+    // console.log("in: ", inputCurrency)
   }, [inputAmount,inputCurrency,outputCurrency,outputAmount,exchangeRateMultiplier]);
 
 

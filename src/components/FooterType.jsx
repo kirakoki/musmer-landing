@@ -3,6 +3,7 @@ import { AiFillInstagram, } from "react-icons/ai";
 import { BsFillTelephoneFill} from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import logo from '../assets/musmer_exchange-white-lggo.png'
+import QRCode from '../assets/MusmerEx App Updated.svg'
 
 function FooterType() {
   return (
@@ -10,13 +11,19 @@ function FooterType() {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:w-[29%]">
+              
+          <h2 className="ml-3 mb-6 text-sm font-semibold text-white uppercase dark:text-white">OUR APP</h2>
+              <a className="flex items-start gap-3 my-4 ml-3" href='/'>
+                  <img src={QRCode} className="h-24" alt="Musmer Logo" />
+                  <h1 className='w-2/4 text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]'>Scan the code to download our App !</h1>
+              </a>
               <a className="flex items-center" href='/'>
                   <img src={logo} className="h-8 mr-3" alt="Musmer Logo" />
                   <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
               </a>
           </div>
           <div className=" flex gap-8 sm:gap-6 sm: flex-1 p-30 justify-evenly text-sx">
-          <div className='flex flex-col justify-between items-start'>
+          <div className='flex flex-col justify-start items-start'>
                 <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Contact</h2>
                     <ul className="flex flex-col items-start justify-center text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
                     <li className="mb-4 flex items-center">

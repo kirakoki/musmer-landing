@@ -30,7 +30,7 @@ const Contact = () => {
         data
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         SetName("");
         SetEmail("");
         SetMessage("");
