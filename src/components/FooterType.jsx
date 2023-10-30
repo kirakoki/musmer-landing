@@ -4,6 +4,7 @@ import { BsFillTelephoneFill} from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import logo from '../assets/musmer_exchange-white-lggo.png'
 import QRCode from '../assets/MusmerEx App Updated.svg'
+import DnLd from '../assets/Google store x App store download TR.svg'
 
 function FooterType() {
   return (
@@ -13,9 +14,11 @@ function FooterType() {
           <div className="mb-6 md:mb-0 md:w-[29%]">
               
           <h2 className="ml-3 mb-6 text-sm font-semibold text-white uppercase dark:text-white">OUR APP</h2>
-              <a className="flex items-start gap-3 my-4 ml-3" href='/'>
+              <a className="flex items-start gap-3 my-4 ml-3" href='https://me-qr.com/Pv569gp0'>
                   <img src={QRCode} className="h-24" alt="Musmer Logo" />
-                  <h1 className='w-2/4 text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]'>Scan the code to download our App !</h1>
+                  <div className="flex flex-col items-start justify-center">
+                  <img src={DnLd} className="h-24" alt="Musmer Logo" />
+                  </div>
               </a>
               <a className="flex items-center" href='/'>
                   <img src={logo} className="h-8 mr-3" alt="Musmer Logo" />

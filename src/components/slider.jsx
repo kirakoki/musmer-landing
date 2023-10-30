@@ -40,7 +40,7 @@ function Slider({ exchangeRateData }) {
           </div>
       <a href="tel:+90 533 872 88 88" className="font-semibold">+905338728888</a>
         </div>
-        <a className="hidden md:block w-fill" href="mailto:info@musmerexchange.com">support: info@musmerexchange.com</a>
+        <a className="hidden md:block w-fill" href="mailto:info@musmerexchange.com">destek: info@musmerexchange.com</a>
       </div>
       <div className="slide-track">
         <SliderItem
