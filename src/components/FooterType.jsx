@@ -13,7 +13,7 @@ function FooterType() {
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0 md:w-[29%]">
               
-          <h2 className="ml-3 mb-6 text-sm font-semibold text-white uppercase dark:text-white">OUR APP</h2>
+          <h2 className="ml-3 mb-6 text-sm font-semibold text-white uppercase dark:text-white">UYGULAMAMIZ</h2>
               <a className="flex items-start gap-3 my-4 ml-3" href='https://me-qr.com/Pv569gp0'>
                   <img src={QRCode} className="h-24" alt="Musmer Logo" />
                   <div className="flex flex-col items-start justify-center">
@@ -27,7 +27,7 @@ function FooterType() {
           </div>
           <div className=" flex gap-8 sm:gap-6 sm: flex-1 p-30 justify-evenly text-sx">
           <div className='flex flex-col justify-start items-start'>
-                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Contact</h2>
+                <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">BİZE ULAŞIN</h2>
                     <ul className="flex flex-col items-start justify-center text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
                     <li className="mb-4 flex items-center">
                         <BsFillTelephoneFill className="mr-2" />
@@ -50,7 +50,7 @@ function FooterType() {
                     </ul>
                 </div>
               <div className='min-[270px]:ml-[-5rem] min-[320px]:ml-1'>
-                  <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white ">Follow us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white ">BİZİ TAKİP EDİN</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium text-[.75rem] md:text-[1rem]">
                       <li className="mb-4">
                           <a href="https://www.facebook.com/musmerexchange" className="hover:underline ">Facebook</a>
